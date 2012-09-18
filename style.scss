@@ -91,6 +91,13 @@ a {
       @include border-radius(3px);
     }
   }
+  .intro{
+    line-height: 1.6em;
+    img{
+      max-height: 15px;
+      margin-right: 5px;
+    }
+  }
   h1{
     font-size: 150%;
     margin-bottom: 10px;
@@ -111,7 +118,6 @@ a {
     li{
       position: relative;
       width: 100%;
-      min-height: 50px;
       &.even{
         background: #CBD4D0 url('images/bgtexture-CBD4D0.png') repeat;
       }
@@ -119,30 +125,51 @@ a {
         background: #717E6F url('images/bgtexture-717E6F.png') repeat;
       }
       .experience{
-        width: 100%;
-        min-height: 50px;
-        padding: 0 0 0 120px;
-        background-position: 5% 7px;
-        background-size: auto 35px;
+        width: 90%;
+        height: 50px;
+        overflow: hidden;
+        padding: 0 0 0 10%;
         background-repeat: no-repeat;
+        background-size: auto 35px;
+        background-position: 5% 7px;
         &.school{
           background-image: url('images/icon-school.svg');
         }
         &.work{
           background-image: url('images/icon-chair.svg');
         }
-        &.project{
+        &.perso{
           background-image: url('images/icon-idea.svg');
         }
-        h1{
-          font-size: 110%;
-          line-height: 50px;
-          display: inline-block;
+        .abstract{
+          cursor: pointer;
+          .date{
+            width: 10%;
+            float: right;
+            height: 100%;
+            font-size: 80%;
+            line-height: 50px;
+          }
+          h1{
+            font-size: 110%;
+            line-height: 50px;
+            display: inline-block;
+          }
+          .subtitle{
+            font-style: italic;
+            display: inline-block;
+            margin-left: 10px;
+          }
         }
-        .subtitle{
-          font-style: italic;
-          display: inline-block;
-          margin-left: 10px;
+        .content{
+          display: none;
+        }
+        &.unfolded{
+          min-height: 50px;
+          height: auto;
+          .content{
+            display: block;
+          }
         }
       }
     }
