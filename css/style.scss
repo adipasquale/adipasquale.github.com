@@ -1,0 +1,229 @@
+@import 'bourbon/bourbon';
+@import 'reset.css';
+
+$break-small: 320px;
+$break-large: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+}
+
+.profile-pic {
+  @include respond-to(handhelds) { width: 100% ;}
+  @include respond-to(medium-screens) { width: 125px; }
+  @include respond-to(wide-screens) { float: none; }
+}
+
+@mixin box-sizing($sizing) {
+  -webkit-box-sizing: $sizing;
+   -moz-box-sizing: $sizing;
+    -ms-box-sizing: $sizing;
+     -o-box-sizing: $sizing;
+        box-sizing: $sizing;
+}
+
+
+/* Text styling */
+
+html{
+  font-size: 100%;
+}
+body{
+  font-size: 1em;
+  line-height: 1.5em;
+  font-family: 'Ubuntu', sans-serif;
+}
+a {
+  color: #834E1C;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+h1{
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+p {
+  margin: 1em 0 1em 0;
+}
+.clear{
+  clear: both;
+}
+.hide{
+  display: none;
+}
+
+
+/* Global Layout */
+
+html, body{
+  height: 100%;
+  overflow: hidden;
+}
+body{
+  background: #834E1C url('../images/bgtexture-834E1C.png') repeat;
+  /* this box-sizing allows adding a padding withouth messing up the */
+  /* inherited 100% height */
+  @include box-sizing(border-box);
+  padding: 2%;
+}
+
+$side-sections-width: 20em;
+$center-section-width: 30em;
+
+#layout-container{
+  height: 100%;
+  width: 2*$side-sections-width + $center-section-width;
+  margin: auto;
+  background: #C0BB81 url('../images/bgtexture-C0BB81.png') repeat;
+  @include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
+}
+.layout-section{
+  float: left;
+  height: 100%;
+  overflow: auto;
+}
+.side-section{
+  width: $side-sections-width;
+  padding: 2%;
+  @include box-sizing(border-box);
+}
+#experiences{
+  padding-top: 2%;
+  width: $center-section-width;
+  @include box-sizing(border-box);
+}
+
+
+/* About Me */
+
+#about-me{
+  .photo{
+    float: left;
+    margin-right: 1em;
+    img{
+      width: 6em;
+      // @include box-shadow(0 0 5px 1px hsla(0, 0%, 0%, 0.65));
+      @include border-radius(3px);
+    }
+  }
+  .intro{
+    img{
+      max-height: 15px;
+      margin-right: 5px;
+    }
+  }
+  h1{
+    font-size: 150%;
+    margin-bottom: 10px;
+  }
+  .links{
+    list-style: none;
+    margin-top: 10px;
+    li{
+      display: inline-block;
+      margin-left: 20px;
+    }
+  }
+}
+
+
+/* Experiences */
+
+#experiences{
+  ul{
+    list-style: none;
+    margin-top: 1em;
+    li{
+      position: relative;
+      width: 100%;
+      &.even{
+        background: #CBD4D0 url('../images/bgtexture-CBD4D0.png') repeat;
+      }
+      &.odd{
+        background: #717E6F url('../images/bgtexture-717E6F.png') repeat;
+      }
+      .experience{
+        @include box-sizing(border-box);
+        width: 100%;
+        height: 4em;
+        overflow: hidden;
+        padding: 0 0 0 10%;
+        background-repeat: no-repeat;
+        background-size: auto 35px;
+        background-position: 2% 10px;
+        &.school{
+          background-image: url('../images/icon-school.svg');
+        }
+        &.work{
+          background-image: url('../images/icon-chair.svg');
+        }
+        &.perso{
+          background-image: url('../images/icon-idea.svg');
+        }
+        .abstract{
+          cursor: pointer;
+          .date{
+            width: 10%;
+            float: right;
+            height: 100%;
+            font-size: 80%;
+            line-height: 50px;
+          }
+          h1{
+            font-size: 110%;
+            line-height: 50px;
+            display: inline-block;
+          }
+          .subtitle{
+            font-style: italic;
+            display: inline-block;
+            margin: 0 12% 0 10px;
+          }
+        }
+        .content{
+          display: none;
+          margin-right: 10%;
+        }
+        &.unfolded{
+          min-height: 50px;
+          height: auto;
+          .content{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Extra */
+#extra{
+  ul#keywords{
+    width: 100%;
+    li{
+      float: left;
+      button{
+        background-color: transparent;
+        border: 1px solid #834E1C;
+        @include border-radius(2px);
+        margin: 2px;
+        padding: 0;
+        color: #000;
+        &:hover, &.selected{
+          background-color: #834E1C;
+          color: #FFF;
+        }
+      }
+    }
+  }
+}

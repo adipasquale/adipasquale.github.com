@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Adrien Di  Pasquale</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
+</head>
+
+<body>
+
+  <div id="layout-container">
+
+    <div class="layout-section side-section" id="about-me">
+      
+      <div class="name-and-photo">
+        <div class="photo">
+          <img src="images/profile-photo.jpg" />
+        </div>
+        <h1>Adrien <br /> Di Pasquale</h1>
+        <div class="clear"></div>
+      </div>
+      <p class="intro">
+        Lost in the sea of web developers, struggling to find a way up.<br />
+      </p>
+      <p class="status">
+        I am currently in South Korea, and looking for a 6 months internship, anywhere.
+
+      </p>
+      <ul class="links">
+        <li><a href="http://github.com/adipasquale/">Github</a></li>
+        <li><a href="http://www.viadeo.com/profile/002zwchni5fo9jj">Viadeo</a></li>
+        <li><a href="http://www.linkedin.com/profile/view?id=67765129">Linkedin</a></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+    <div class="layout-section" id="experiences">
+      <h1>Experiences</h1>
+      <ul>
+        %EXPERIENCES%
+      </ul>
+    </div>
+    <div class="layout-section side-section" id="extra">
+      
+      <h1>Mashed Keywords</h1>
+      <ul id="keywords">
+        %KEYWORDS%
+      </ul>
+      <div class="clear"></div>
+
+      <h1>Languages</h1>
+      <ul>
+        <li>
+          <span title="I'm like super duper fluent, man"><img src="images/glyphicons_231_sun.png" alt="sunny" />French and English</span>
+        </li>
+        <li>
+          <span title="ehh, I can get by"><img src="images/glyphicons_189_brightness_increase.png" alt="less sunny" />Italian and Spanish
+        </li>
+        <li>
+            <span title="I could survive if I had to, nothing more"><img src="images/glyphicons_188_brightness_reduce.png" alt="not sunny at all" />Chinese and Korean
+        </li>
+      </ul>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+
+  <script type="text/javascript" src="javascripts/zepto.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready( function(){
+
+    var lookupTable = %LOOKUPTABLE%;
+
+
+    $(".keyword").click(function(e){
+      e.preventDefault();
+      var addClass = false;
+      if ($(this).hasClass('selected')) {
+        $(".experience.hide").removeClass('hide');
+        $(this).removeClass('selected');
+      }
+      else {
+        $(".keyword").removeClass('selected');
+
+          $(".experience").addClass('hide');
+          $.each(lookupTable[$(this).data('keyword')], function(idx, titleSlug){
+            $("#"+titleSlug).removeClass('hide');
+          })
+          $(this).addClass('selected');
+      }
+    });
+
+    $(".experience").click( function(){
+      $(this).toggleClass("unfolded");
+    });
+  
+  });
+  </script>
+
+</body>
+</html>

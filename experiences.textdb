@@ -1,0 +1,169 @@
+###
+[title|en] Exchange semester at KAIST
+[title|fr] Semestre d'échange à KAIST
+[subtitle|en] famous Korean Science School
+[subtitle|fr] Ecole Scientifique Coréenne Renommée
+[type] school
+[date] 2012
+[description|en] I am currently taking 3 courses : Bioinformatics, Online Learning and Communication, and Web Linguistics Science.
+  That's 4 if you count Korean :)
+[description|fr] Je suis en ce moment 3 cours en anglais : Bioinformatique, Education en ligne, Linguistique sur le Web. (et un cours de Coréen)
+[keywords] Asia
+
+
+###
+[title|en] PACS dataviz
+[title|fr] PACS dataviz
+[subtitle|en] open data government contest laureate
+[subtitle|fr] lauréat d'un concours open data organisé par le gouvernement
+[type] perso
+[date] 2011
+[description|en] The contest rules were not constraining, you just had to use newly released open
+  data. I created an interactive map of PACS sealings in the french Regions along the years. 
+  The jury selected me as one of the 4 laureates, and the prize was 
+  an invitation to assist LeWeb'11 and demonstrate our apps there. 
+[description|fr] La seule contrainte de ce concours était d'utiliser un jeu de données nouvellement ouvert par
+  l'état français. J'ai créé une carte interactive représentant le nombre de PACS conclus par année
+  par région. Le jury a sélectionné mon projet parmi 4 lauréats et nous avons eu l'occasion de participer
+  à LeWeb'11 et y démontrer nos applications.
+[keywords] JS, dataviz, open data
+
+
+###
+[title|en] Izikiz.com
+[title|fr] Izikiz.com
+[subtitle|en] exchange students house-swapping project
+[subtitle|fr] échange de logements pour les étudiants en échange
+[type] perso
+[date] 2011
+[description|en] The idea of this project was to apply the house-swapping concept to the exchange students crowd,
+  who has adequate symetrical flows. With some wireframes, we applied and earned a few regional fundings,
+  got a custom design and logo made by graphic freelancers, and I started developing it. 
+  There were quite already quite a few iterations, and it has yet to be finished and properly launched.
+[description|fr] L'idée de ce projet est d'appliquer le principe d'échange de logements aux étudiants d'échange,
+  qui présentent des flux symétriques adéquats. Avec ce concept et quelques ébauches d'interface, nous avons
+  été acceptés pour recevoir une aide régionale, que nous avons utilisé pour embaucher des graphistes pour réaliser
+  le logo et le design. J'ai de mon côté commencé à développer le site.
+  Il y a déjà eu quelques itérations dans le processus de développement, mais le site doit toujours être fini
+  et lancé.
+[keywords] PHP, MySQL, symfony
+
+
+###
+[title|en] Android Musicsheet App
+[title|fr] Appli Android de partitions musicales
+[subtitle|en] prototype for a mobile app contest
+[subtitle|fr] prototype pour un concours d'applis mobiles
+[type] perso
+[date] 2011
+[description|en] I joined a friends' team to participate Alten ID'Mobile contest first edition.
+  Our project was to create a musicsheet app that would manage your collection and also help you 
+  while you're playing : automatically flip pages, point out the notes you misplayed .. 
+  This was maybe overly ambitious and we had a hard time figuring out how to correctly handle the FFTs,
+  time-windows and mic-sampling problems. We managed to build a prototype that could recognize a simple
+  predefined tune  (played by a computer), and flip the pages accordingly.
+  We had also started work on generalizing it to live instruments, and to any music sheet (using lilypond),
+  but it was not finished on time.
+[description|fr] J'ai rejoint l'équipe d'un amis pour participer au concours Alten ID'Mobile (1ère édition)
+  Notre projet était de créer une app Android de partitions musicales, qui permettrait à la fois de gérer une
+  collection et surtout de faciliter l'entraînement du musicien : faire tourner les pages automatiquement lorsque
+  le musicien est en train de jouer, signaler les fausses notes ... C'était un projet ambitieux, et nous avons
+  passé beaucoup de temps à manipuler les FFTs, les fenêtres de temps et d'échantillonage .. Nous avons réussi
+  à construire un prototype capable de reconnaître une partition précise, jouée par un ordinateur, et tourner les 
+  pages synchronément.
+  Nous avions aussi commencé à généraliser l'app à des instruments réels, et à n'importe quelle partition (grace
+  au format lilypond), mais n'avons pas fini en temps voulu pour le concours.
+[keywords] Android, music
+
+
+###
+[title|en] Internship at Joshfire
+[title|fr] Stage chez Joshfire
+[subtitle|en] Web & connected objects startup
+[subtitle|fr] Startup Web & Objets connectés
+[type] work
+[date] 2012 summer
+[description|en] Here is a list of the projects I worked on at Joshfire :
+  * Android prototype for a retro-style connected object, with some OS tweaks.
+  * Dataviz templates for the Factory (areas on a map, and timeline), with a focus on client-side JS optimization.
+  * Development of TEDxParis.com Wordpress theme, using custom types taxonomies.
+  * Some improvements on the Factory : Google Spreadsheets datasource, and linked data handling.
+  * A web-app prototype for a multiplayer hazard game using node.js, socket.io, and Facebook JS SDK.
+[description|fr] Voici une liste des missions effectuées chez Joshfire :
+  * Prototype d'appli Android pour un objet connecté au look retro, avec des tweaks systèmes.
+  * Templates de visualisation de données pour la Factory (régions sur une carte, frise chronologique), avec optimisation côté client.
+  * Développement du thème Wordpress pour TEDxParis, avec utilisation des Custom Types Taxonomies.
+  * Quelques améliorations internes à la Factory : sur la source de données Google Spreadsheets, et sur la gestion des linked data
+  * Un prototype d'appli web pour un jeu de hasard multi-joueurs temps-réel. Utilisation de Node.js, socket.io, et du SDK JS de Facebook
+[keywords] JS, Node.JS, linked data, Android, PHP, Wordpress, dataviz
+
+
+###
+[title|en] Internship at Stribe
+[title|fr] Stage chez Stribe
+[subtitle|en] Social network development
+[subtitle|fr] Développement d'un réseau social
+[type] work
+[date] 2011 summer
+[description|en] Stribe won LeWeb'09 Startup Contest for a social JS tool they built, but I worked on
+  a different pet project of theirs : a social network for couples.
+  I helped implement new features and fix bugs.  It was the occasion to practice extensively RubyOnRails, both frontend and backend, and it's deploy setup.
+  This was an overall valuable experience both technically and socially, for taking initiatives in small teams
+  and participating in collaborative creative sessions.
+[description|fr] Stribe a gagné la compétition de Startup de LeWeb'09 pour un outil de socialisation JS, mais j'ai
+  travaillé sur un de leurs autres projets : un réseau social pour couples.
+  J'ai aidé à corriger des bugs et à implémenter de nouvelles fonctionnalités. C'était l'occasion de pratiquer 
+  intensivement RubyOnRails, côté frontend et backend, et aussi les procédures de déploiement.
+  Cette expérience m'a apporté beaucoup techniquement ainsi que dans la manière de travailler, la prise d'initiatives
+  dans des petits groupes, et la participations aux sessions créatives.
+[keywords] RubyOnRails, JS
+
+
+###
+[title|en] Internship at Alcatel Lucent Shanghai Bell
+[title|fr] Stage chez Alcatel Lucent Shanghai Bell
+[subtitle|en] Telecommunications SW development tools
+[subtitle|fr] Développement d'outils internes
+[type] work
+[date] 2010 summer
+[description|en] I Merged and fixed internal tools dedicated to telecommunications standardization, using C/C++ MFC framework on Visual Studio. 
+  Even though the technical aspects of this mission did not fascinate me, it was a unique 
+  immersion in an completely foreign work culture, and in a multinational company.
+[description|fr] J'ai eu pour mission de fusionner et d'améliorer des outils internes traitant des standards utilisés
+  dans l'industrie des Télécommunications. L'ensemble était développé avec le framework C/C++ Microsoft MFC et Visual Studio.
+  Même si les aspects techniques ne m'ont pas passionnés, ça a été une immersion unique dans un environnement 
+  de travail étranger et dans une compagnie internationale.
+[keywords] C++, Asia
+
+
+###
+[title|en] Entered INSA de Lyon
+[title|fr] Intégré l'INSA de Lyon
+[subtitle|en] top-10 french engineering school
+[subtitle|fr] Ecole d'ingénieurs renommée
+[type] school
+[date] 2007
+[description|en] After two years of common scientifical background studies, I integrated the Computers Science Department.
+[description|fr] Après deux ans de prépa scientifique intégrée, j'ai rejoint le département Informatique.
+[keywords] /
+
+
+###
+[title|en] MsnTrucAstuce.com
+[title|fr] MsnTrucAstuce.com
+[subtitle|en] first amateur website
+[subtitle|fr] premier site amateur
+[type] perso
+[date] 2005
+[description|en] It all started with a blog created by a cousin, full of emoticons, plugins and other tweaks for (the late) MSN Messenger.
+  When it went skyrocketting it's platform's rankings, I was put in charge of creating the website. And so did I,
+  without almost any prior knowledge, learning while building, hence the very amateur result.
+[description|fr] Ce projet a commencé avec un blog créé par un cousin, contenant des émoticones, des plugins et autres 
+  fonctionnalités additionnelles pour (feu) MSN Messenger.
+  Quand le blog s'est retrouvé parmi les plus visités de sa plateforme (skyblog) nous avons décidé de créer un site,
+  et j'ai été désigné développeur. J'ai donc créé ce site en apprenant sur le tas, d'où le résultat peu abouti.
+[keywords] PHP, MySQL
+
+
+# Scolaires :
+# Domotique, a retrouver. Trames http, securisation couche transport.
