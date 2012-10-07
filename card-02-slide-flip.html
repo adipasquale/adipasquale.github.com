@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class=" js csstransforms3d" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  
+  <!-- disable zooming -->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=0">
+  
+  <title>Card 2 - slide flip · Intro to CSS 3D transforms › Examples</title>
+  
+  <link rel="stylesheet" href="flipcard.css" media="screen">
+
+</head>
+<body>
+
+  <h1>Card 2 - slide flip</h1>
+
+  <section class="container">
+      
+      <div class="tile one initial">
+        <figure class="front-tile">
+          <div class="tile-content">
+          1
+          </div>
+          <div class="bottom hinges">
+            <div class="hinge bottom-left">&nbsp;
+            </div>
+            <div class="hinge bottom-right">&nbsp;
+            </div>
+          </div>
+
+        </figure>
+        <figure class="back-tile"></figure>
+      </div>
+
+    <div class="tile-group initial">
+
+      <div class="tile two initial">
+        <figure class="front-tile">
+          <div class="top hinges">
+            <div class="hinge top-left">&nbsp;
+            </div>
+            <div class="hinge top-right">&nbsp;
+            </div>
+          </div>
+
+          <div class="tile-content">
+          2
+          </div>
+
+          <div class="bottom hinges">
+            <div class="hinge bottom-left">&nbsp;
+            </div>
+            <div class="hinge bottom-right">&nbsp;
+            </div>
+          </div>
+
+        </figure>
+        <figure class="back-tile"></figure>
+      </div>
+
+
+      <div class="tile three initial">
+        <figure class="front-tile">3</figure>
+        <figure class="back-tile"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="options">
+    <p><button id="flip">Flip Card</button></p>
+  </section>
+
+  <script type="text/javascript" src="javascripts/zepto.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      
+      $('#flip').click( function() {
+        $(".tile-group").removeClass("initial").bind("webkitTransitionEnd oTransitionEnd transitionend msTransitionEnd",
+          function(){
+            $(".three").removeClass("initial");
+          });
+        // $(".back").removeClass('initial').addClass('flipped');
+      });
+    });
+  </script>
+
+  
+</body></html>

@@ -1,116 +1,168 @@
 ###
-Exchange semester at KAIST
-famous South-Korean Technical Institute
-school
-2012
-I am currently taking 3 courses : Bioinformatics, Online Learning and Communication, and Web Linguistics Science.
+[title|en] Exchange semester at KAIST
+[title|fr] Semestre d'échange à KAIST
+[subtitle|en] famous Korean Science School
+[subtitle|fr] Ecole Scientifique Coréenne Renommée
+[type] school
+[date] 2012
+[description|en] I am currently taking 3 courses : Bioinformatics, Online Learning and Communication, and Web Linguistics Science.
   That's 4 if you count Korean :)
-biology, genetics, online learning, education, semantic web, linguistics, Asia
+[description|fr] Je suis en ce moment 3 cours en anglais : Bioinformatique, Education en ligne, Linguistique sur le Web. (et un cours de Coréen)
+[keywords] Asia
 
 
 ###
-PACS dataviz 
-government organized contest to encourage french open data 
-perso
-2011
-The contest was once again very generic, you just had to create something based on a certain set of newly released
-  data. Diving into huge datasets and making something out of it kind of attracted me, but I could not find any original
-  idea .. the day before the end I told myself, it would really suck to miss on it, so I just went ahead and realized 
-  the only idea I had had : an interactive map of PACS sealings amongst french Regions along the years. And that was not
-  as easy as I expected ! I pulled an all-nighter on that one and even missed the next day class to end right to the deadline.
-  I guess it was worth it, since I won (together with 3 other projects, but still :). The prize was quite interesting since it
-  was an invitation to assist LeWeb'11 and demonstrate our apps there. 
-javascript, bootstrap, raphaeljs, open data
+[title|en] PACS dataviz
+[title|fr] PACS dataviz
+[subtitle|en] open data government contest laureate
+[subtitle|fr] lauréat d'un concours open data organisé par le gouvernement
+[type] perso
+[date] 2011
+[description|en] The contest rules were not constraining, you just had to use newly released open
+  data. I created an interactive map of PACS sealings in the french Regions along the years. 
+  The jury selected me as one of the 4 laureates, and the prize was 
+  an invitation to assist LeWeb'11 and demonstrate our apps there. 
+[description|fr] La seule contrainte de ce concours était d'utiliser un jeu de données nouvellement ouvert par
+  l'état français. J'ai créé une carte interactive représentant le nombre de PACS conclus par année
+  par région. Le jury a sélectionné mon projet parmi 4 lauréats et nous avons eu l'occasion de participer
+  à LeWeb'11 et y démontrer nos applications.
+[keywords] JS, dataviz, open data
 
 
 ###
-Izikiz.com website
-exchange students house-swapping
-perso
-2011
-This idea originated from a friend's father : he figured why not adapt the house-swapping idea of websites
-  like echangedemaison.com to exchange students ? It makes sense, since each year there are thousands of students
-  going abroad for months, semesters or years with symetrical flows.. so wouldn't it be great if I could just
-  swap my Paris flat with an Romanese student as I leave for a semester there and he comes for one ? 
-  With this idea we built wireframes, applied and won a few regional fundings, got a custom design and logo made
-  by a graphic freelancers, and I started developing it. 
-  There were quite a few iterations on building this project, and it has yet to be finished and properly launched.
-PHP, symfony, integration
+[title|en] Izikiz.com
+[title|fr] Izikiz.com
+[subtitle|en] exchange students house-swapping project
+[subtitle|fr] échange de logements pour les étudiants en échange
+[type] perso
+[date] 2011
+[description|en] The idea of this project was to apply the house-swapping concept to the exchange students crowd,
+  who has adequate symetrical flows. With some wireframes, we applied and earned a few regional fundings,
+  got a custom design and logo made by graphic freelancers, and I started developing it. 
+  There were quite already quite a few iterations, and it has yet to be finished and properly launched.
+[description|fr] L'idée de ce projet est d'appliquer le principe d'échange de logements aux étudiants d'échange,
+  qui présentent des flux symétriques adéquats. Avec ce concept et quelques ébauches d'interface, nous avons
+  été acceptés pour recevoir une aide régionale, que nous avons utilisé pour embaucher des graphistes pour réaliser
+  le logo et le design. J'ai de mon côté commencé à développer le site.
+  Il y a déjà eu quelques itérations dans le processus de développement, mais le site doit toujours être fini
+  et lancé.
+[keywords] PHP, MySQL, symfony
 
 
 ###
-Android Musicsheet App
-prototype for a mobile app contest
-perso
-2011
-Alten organized a contest, called ID'Mobile, in which the only guideline was to build an app.
-  A friend from my school, Yue Wang, applied for it with the following concept : create a proper
-  Digital Musicsheet, that would manage your collection, flip pages as you played your instrument,
-  point out the notes you misplayed ... That was quite an ambitious project but he got picked for the
-  first selection, so together with Luo Cheng I joined him to form a 3-men team as required, and we
-  started building it. We spent a lot of time on it, trying to figure out how to handle the FFT, time-windows,
-  mic-sampling, chatting with some of our professors implicated in Music softwares.. We managed to have
-  a prototype that could recognize a simple predefined tune's sheet, and flip the pages accordingly to a
-  predefined record. We had also started work on generalizing it to real instrument playing, and to any
-  music sheet, thanks to the lilypond format, but it was not finished on time. 
-Android, Java, mobile, music, signal processing
+[title|en] Android Musicsheet App
+[title|fr] Appli Android de partitions musicales
+[subtitle|en] prototype for a mobile app contest
+[subtitle|fr] prototype pour un concours d'applis mobiles
+[type] perso
+[date] 2011
+[description|en] I joined a friends' team to participate Alten ID'Mobile contest first edition.
+  Our project was to create a musicsheet app that would manage your collection and also help you 
+  while you're playing : automatically flip pages, point out the notes you misplayed .. 
+  This was maybe overly ambitious and we had a hard time figuring out how to correctly handle the FFTs,
+  time-windows and mic-sampling problems. We managed to build a prototype that could recognize a simple
+  predefined tune  (played by a computer), and flip the pages accordingly.
+  We had also started work on generalizing it to live instruments, and to any music sheet (using lilypond),
+  but it was not finished on time.
+[description|fr] J'ai rejoint l'équipe d'un amis pour participer au concours Alten ID'Mobile (1ère édition)
+  Notre projet était de créer une app Android de partitions musicales, qui permettrait à la fois de gérer une
+  collection et surtout de faciliter l'entraînement du musicien : faire tourner les pages automatiquement lorsque
+  le musicien est en train de jouer, signaler les fausses notes ... C'était un projet ambitieux, et nous avons
+  passé beaucoup de temps à manipuler les FFTs, les fenêtres de temps et d'échantillonage .. Nous avons réussi
+  à construire un prototype capable de reconnaître une partition précise, jouée par un ordinateur, et tourner les 
+  pages synchronément.
+  Nous avions aussi commencé à généraliser l'app à des instruments réels, et à n'importe quelle partition (grace
+  au format lilypond), mais n'avons pas fini en temps voulu pour le concours.
+[keywords] Android, music
 
 
 ###
-Internship at Joshfire
-Paris-based web startup
-work
-2012 summer
-Appli android simulation old school. Tweaks linux embarqué.
-  Devt 2 templates dataviz carte regions et timeline. Optimisation js client, d3, raphaeljs.
-  Tedxparis theme wordpress custom types taxonomies css3
-  Developpement factory node gros projet implementation linked data structure
-  Fdj bingo live backend node socket io express js
-  Interface avec fw joshfire = backbonen + surcouche devt plugin facebook login fb js api
-Javascript, Node.JS, Backbone, linked data, Android, PHP, Wordpress
+[title|en] Internship at Joshfire
+[title|fr] Stage chez Joshfire
+[subtitle|en] Web & connected objects startup
+[subtitle|fr] Startup Web & Objets connectés
+[type] work
+[date] 2012 summer
+[description|en] Here is a list of the projects I worked on at Joshfire :
+  * Android prototype for a retro-style connected object, with some OS tweaks.
+  * Dataviz templates for the Factory (areas on a map, and timeline), with a focus on client-side JS optimization.
+  * Development of TEDxParis.com Wordpress theme, using custom types taxonomies.
+  * Some improvements on the Factory : Google Spreadsheets datasource, and linked data handling.
+  * A web-app prototype for a multiplayer hazard game using node.js, socket.io, and Facebook JS SDK.
+[description|fr] Voici une liste des missions effectuées chez Joshfire :
+  * Prototype d'appli Android pour un objet connecté au look retro, avec des tweaks systèmes.
+  * Templates de visualisation de données pour la Factory (régions sur une carte, frise chronologique), avec optimisation côté client.
+  * Développement du thème Wordpress pour TEDxParis, avec utilisation des Custom Types Taxonomies.
+  * Quelques améliorations internes à la Factory : sur la source de données Google Spreadsheets, et sur la gestion des linked data
+  * Un prototype d'appli web pour un jeu de hasard multi-joueurs temps-réel. Utilisation de Node.js, socket.io, et du SDK JS de Facebook
+[keywords] JS, Node.JS, linked data, Android, PHP, Wordpress, dataviz
 
 
 ###
-Internship at Stribe
-Paris-based web startup
-work
-2011 summer
-/
-Rails, Ruby
+[title|en] Internship at Stribe
+[title|fr] Stage chez Stribe
+[subtitle|en] Social network development
+[subtitle|fr] Développement d'un réseau social
+[type] work
+[date] 2011 summer
+[description|en] Stribe won LeWeb'09 Startup Contest for a social JS tool they built, but I worked on
+  a different pet project of theirs : a social network for couples.
+  I helped implement new features and fix bugs.  It was the occasion to practice extensively RubyOnRails, both frontend and backend, and it's deploy setup.
+  This was an overall valuable experience both technically and socially, for taking initiatives in small teams
+  and participating in collaborative creative sessions.
+[description|fr] Stribe a gagné la compétition de Startup de LeWeb'09 pour un outil de socialisation JS, mais j'ai
+  travaillé sur un de leurs autres projets : un réseau social pour couples.
+  J'ai aidé à corriger des bugs et à implémenter de nouvelles fonctionnalités. C'était l'occasion de pratiquer 
+  intensivement RubyOnRails, côté frontend et backend, et aussi les procédures de déploiement.
+  Cette expérience m'a apporté beaucoup techniquement ainsi que dans la manière de travailler, la prise d'initiatives
+  dans des petits groupes, et la participations aux sessions créatives.
+[keywords] RubyOnRails, JS
 
 
 ###
-Internship at Alcatel Lucent Shanghai Bell
-Short mission in Shanghai
-work
-2010 summer
-/
-C++, ASN.1, Asia
+[title|en] Internship at Alcatel Lucent Shanghai Bell
+[title|fr] Stage chez Alcatel Lucent Shanghai Bell
+[subtitle|en] Telecommunications SW development tools
+[subtitle|fr] Développement d'outils internes
+[type] work
+[date] 2010 summer
+[description|en] I Merged and fixed internal tools dedicated to telecommunications standardization, using C/C++ MFC framework on Visual Studio. 
+  Even though the technical aspects of this mission did not fascinate me, it was a unique 
+  immersion in an completely foreign work culture, and in a multinational company.
+[description|fr] J'ai eu pour mission de fusionner et d'améliorer des outils internes traitant des standards utilisés
+  dans l'industrie des Télécommunications. L'ensemble était développé avec le framework C/C++ Microsoft MFC et Visual Studio.
+  Même si les aspects techniques ne m'ont pas passionnés, ça a été une immersion unique dans un environnement 
+  de travail étranger et dans une compagnie internationale.
+[keywords] C++, Asia
 
 
 ###
-Entered INSA de Lyon
-top-10 french engineering school
-school
-2007
-/
-/
+[title|en] Entered INSA de Lyon
+[title|fr] Intégré l'INSA de Lyon
+[subtitle|en] top-10 french engineering school
+[subtitle|fr] Ecole d'ingénieurs renommée
+[type] school
+[date] 2007
+[description|en] After two years of common scientifical background studies, I integrated the Computers Science Department.
+[description|fr] Après deux ans de prépa scientifique intégrée, j'ai rejoint le département Informatique.
+[keywords] /
 
 
 ###
-msntrucastuce.com amateur project
-small blog with big audience turned into a noobie website
-perso
-2005
-My cousin and me used to create blogs on the trending new things, just as a hobby to try and make
-  it to the top of this platform : Skyblog. Somehow we managed to with this one : msntrucastuce, which
-  as it's title indicates contained all sort of stuff for the late MSN Messenger (now WLM). That includes
-  emoticons & sounds, plugins, rare characters pseudo generators ... all of which turned out to be
-  pretty indispensable for teenagers at this period. When we reached the first position of this platform,
-  we decided to go 'serious', and build a proper website. I was put in charge of this, not really because
-  I was more able to, but rather because I was more into it. So that was my first real website, and I learnt
-  almost everything from scratch while building it, hence the poor result. But hey, that's how I got in the game !
-php, MySQL, Google AdWords
+[title|en] MsnTrucAstuce.com
+[title|fr] MsnTrucAstuce.com
+[subtitle|en] first amateur website
+[subtitle|fr] premier site amateur
+[type] perso
+[date] 2005
+[description|en] It all started with a blog created by a cousin, full of emoticons, plugins and other tweaks for (the late) MSN Messenger.
+  When it went skyrocketting it's platform's rankings, I was put in charge of creating the website. And so did I,
+  without almost any prior knowledge, learning while building, hence the very amateur result.
+[description|fr] Ce projet a commencé avec un blog créé par un cousin, contenant des émoticones, des plugins et autres 
+  fonctionnalités additionnelles pour (feu) MSN Messenger.
+  Quand le blog s'est retrouvé parmi les plus visités de sa plateforme (skyblog) nous avons décidé de créer un site,
+  et j'ai été désigné développeur. J'ai donc créé ce site en apprenant sur le tas, d'où le résultat peu abouti.
+[keywords] PHP, MySQL
 
 
 # Scolaires :

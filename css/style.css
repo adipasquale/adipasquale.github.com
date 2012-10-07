@@ -1,0 +1,178 @@
+@import url(reset.css);
+@media only screen and (max-width: 320px) {
+  .profile-pic {
+    width: 100%; } }
+@media only screen and (min-width: 321px) and (max-width: 1023px) {
+  .profile-pic {
+    width: 125px; } }
+@media only screen and (min-width: 1024px) {
+  .profile-pic {
+    float: none; } }
+
+/* Text styling */
+html {
+  font-size: 100%; }
+
+body {
+  font-size: 1em;
+  line-height: 1.5em;
+  font-family: 'Ubuntu', sans-serif; }
+
+a {
+  color: #834E1C;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+h1 {
+  font-size: 1.5em;
+  line-height: 1.5em; }
+
+p {
+  margin: 1em 0 1em 0; }
+
+.clear {
+  clear: both; }
+
+.hide {
+  display: none; }
+
+/* Global Layout */
+html, body {
+  height: 100%;
+  overflow: hidden; }
+
+body {
+  background: #834e1c url("../images/bgtexture-834E1C.png") repeat;
+  /* this box-sizing allows adding a padding withouth messing up the */
+  /* inherited 100% height */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 2%; }
+
+#layout-container {
+  height: 100%;
+  width: 70em;
+  margin: auto;
+  background: #c0bb81 url("../images/bgtexture-C0BB81.png") repeat;
+  -webkit-box-shadow: compact(0 0 5px 3px rgba(0, 0, 0, 0.65), false, false, false, false, false, false, false, false);
+  box-shadow: compact(0 0 5px 3px rgba(0, 0, 0, 0.65), false, false, false, false, false, false, false, false); }
+
+.layout-section {
+  float: left;
+  height: 100%;
+  overflow: auto; }
+
+.side-section {
+  width: 20em;
+  padding: 2%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+#experiences {
+  padding-top: 2%;
+  width: 30em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* About Me */
+#about-me .photo {
+  float: left;
+  margin-right: 1em; }
+  #about-me .photo img {
+    width: 6em;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+#about-me .intro img {
+  max-height: 15px;
+  margin-right: 5px; }
+#about-me h1 {
+  font-size: 150%;
+  margin-bottom: 10px; }
+#about-me .links {
+  list-style: none;
+  margin-top: 10px; }
+  #about-me .links li {
+    display: inline-block;
+    margin-left: 20px; }
+
+/* Experiences */
+#experiences ul {
+  list-style: none;
+  margin-top: 1em; }
+  #experiences ul li {
+    position: relative;
+    width: 100%; }
+    #experiences ul li.even {
+      background: #cbd4d0 url("../images/bgtexture-CBD4D0.png") repeat; }
+    #experiences ul li.odd {
+      background: #717e6f url("../images/bgtexture-717E6F.png") repeat; }
+    #experiences ul li .experience {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      height: 4em;
+      overflow: hidden;
+      padding: 0 0 0 10%;
+      background-repeat: no-repeat;
+      background-size: auto 35px;
+      background-position: 2% 10px; }
+      #experiences ul li .experience.school {
+        background-image: url("../images/icon-school.svg"); }
+      #experiences ul li .experience.work {
+        background-image: url("../images/icon-chair.svg"); }
+      #experiences ul li .experience.perso {
+        background-image: url("../images/icon-idea.svg"); }
+      #experiences ul li .experience .abstract {
+        cursor: pointer; }
+        #experiences ul li .experience .abstract .date {
+          width: 10%;
+          float: right;
+          height: 100%;
+          font-size: 80%;
+          line-height: 50px; }
+        #experiences ul li .experience .abstract h1 {
+          font-size: 110%;
+          line-height: 50px;
+          display: inline-block; }
+        #experiences ul li .experience .abstract .subtitle {
+          font-style: italic;
+          display: inline-block;
+          margin: 0 12% 0 10px; }
+      #experiences ul li .experience .content {
+        display: none;
+        margin-right: 10%; }
+      #experiences ul li .experience.unfolded {
+        min-height: 50px;
+        height: auto; }
+        #experiences ul li .experience.unfolded .content {
+          display: block; }
+
+/* Extra */
+#extra ul#keywords {
+  width: 100%; }
+  #extra ul#keywords li {
+    float: left; }
+    #extra ul#keywords li button {
+      background-color: transparent;
+      border: 1px solid #834E1C;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      margin: 2px;
+      padding: 0;
+      color: #000; }
+      #extra ul#keywords li button:hover, #extra ul#keywords li button.selected {
+        background-color: #834E1C;
+        color: #FFF; }
