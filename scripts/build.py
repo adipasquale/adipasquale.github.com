@@ -142,7 +142,10 @@ def parse_file(input_file_path):
         inc_layout = inc_layout.replace('%LOOKUPTABLE%', json.dumps(exp_lookup_list[lang]))
         inc_layout = inc_layout.replace('%KEYWORDS%', kw_html)
         # output to new file
-        index_file = codecs.open("index." + lang + ".html", "w", encoding='utf-8')
+        filename = "index"
+        if lang != 'en':
+            filename += "." + lang
+        index_file = codecs.open(filename + ".html", "w", encoding='utf-8')
         index_file.write(inc_layout)
 
 
