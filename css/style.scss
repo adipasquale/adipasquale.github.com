@@ -90,12 +90,12 @@ $center-section-width: 30em;
 .layout-section{
   float: left;
   height: 100%;
-  overflow: auto;
 }
 .side-section{
   width: $side-sections-width;
   padding: 2%;
   @include box-sizing(border-box);
+  overflow: auto; /* for the middle section, we only want experiences to have this */
 }
 #experiences{
   padding-top: 2%;
@@ -140,9 +140,16 @@ $center-section-width: 30em;
 /* Experiences */
 
 #experiences{
+  overflow: hidden;
+  h1{
+    position: absolute;
+  }
   ul{
     list-style: none;
-    margin-top: 1em;
+    margin-top: 3em;
+    height: 100%;
+    overflow: auto;
+    @include box-sizing(border-box);
     li{
       position: relative;
       width: 100%;
