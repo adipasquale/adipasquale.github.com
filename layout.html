@@ -21,11 +21,11 @@
         <div class="clear"></div>
       </div>
       <p class="intro">
-        Lost in the sea of web developers, struggling to find a way up.<br />
+        %intro%
+        <br />
       </p>
       <p class="status">
-        I am currently in South Korea, and looking for a 6 months internship, anywhere.
-
+        %status%
       </p>
       <ul class="links">
         <li><a href="http://github.com/adipasquale/">Github</a></li>
@@ -35,29 +35,29 @@
       <div class="clear"></div>
     </div>
     <div class="layout-section" id="experiences">
-      <h1>Experiences</h1>
+      <h1>%experiences_title%</h1>
       <ul>
         %EXPERIENCES%
       </ul>
     </div>
     <div class="layout-section side-section" id="extra">
       
-      <h1>Mashed Keywords</h1>
+      <h1>%keywords_title%</h1>
       <ul id="keywords">
         %KEYWORDS%
       </ul>
       <div class="clear"></div>
 
-      <h1>Languages</h1>
+      <h1>%langs_title%</h1>
       <ul>
         <li>
-          <span title="I'm like super duper fluent, man"><img src="images/glyphicons_231_sun.png" alt="sunny" />French and English</span>
+          <span title="%langs_1_title%"><img src="images/glyphicons_231_sun.png" alt="sunny" />%langs_1%</span>
         </li>
         <li>
-          <span title="ehh, I can get by"><img src="images/glyphicons_189_brightness_increase.png" alt="less sunny" />Italian and Spanish
+          <span title="%langs_2_title%"><img src="images/glyphicons_189_brightness_increase.png" alt="less sunny" />%langs_2%
         </li>
         <li>
-            <span title="I could survive if I had to, nothing more"><img src="images/glyphicons_188_brightness_reduce.png" alt="not sunny at all" />Chinese and Korean
+            <span title="%langs_3_title%"><img src="images/glyphicons_188_brightness_reduce.png" alt="not sunny at all" />%langs_2%
         </li>
       </ul>
     </div>
@@ -69,7 +69,7 @@
   <script type="text/javascript">
   $(document).ready( function(){
 
-    var lookupTable = %LOOKUPTABLE%;
+    var lookupTable = %lookup_table_json%;
 
 
     $(".keyword").click(function(e){

@@ -75,7 +75,7 @@ figure{
   height: 100%;
 }
 .front-tile{
-  background-image: url('images/light-wood-texture.jpg');
+  background-image: url('../images/light-wood-texture.jpg');
   .hinges{
     width: 100%;
     background-color: white;
@@ -91,7 +91,7 @@ figure{
       position: absolute;
       width: 100%;
       height: 36px;
-      background: transparent url('images/hinge.png') no-repeat top left scroll;
+      background: transparent url('../images/hinge.png') no-repeat top left scroll;
       &.top-left{
         background-position: 0 -28px;
       }
@@ -116,7 +116,7 @@ figure{
   height: 93%;
 }
 .back-tile{
-  background-image: url('images/dark-wood-texture.png');
+  background-image: url('../images/dark-wood-texture.png');
   @include backface_visibility(hidden);
   @include transform_origin(center center);
   @include transform(rotateX( 180deg ));

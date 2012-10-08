@@ -27,13 +27,11 @@ entry_line_re = re.compile(r'\[(\w*)(\|(\w*)){0,1}\] (.*)')
 following_line_re = re.compile(r'  (.*)')
 
 
-def parse_file(input_file_path):
+def build():
+
+    # parse experiences file
     f = codecs.open('experiences.textdb', encoding='utf-8')
-
-    # array listing all the experiences
     exps = []
-
-    #loop over experiences
     line = f.readline()
     while line:
         if line.strip() == '###':
@@ -63,28 +61,41 @@ def parse_file(input_file_path):
                         prop['value'] = entry_res.group(4)
                     else:
                         # line doesn't match anything, save current experience, and skip to next
-                        exp['keywords'] = exp['keywords'].split(',')
+                        # but first, do some further computing with slugs and keywords
+                        if exp['keywords'] != "/":
+                            exp['keywords'] = exp['keywords'].split(',')
+                        else:
+                            exp['keywords'] = []
                         exp['keywords_slugs'] = map(slugify, exp['keywords'])
                         exp['title_slug'] = {}
                         for lang in exp['title']:
                             exp['title_slug'][lang] = slugify(exp['title'][lang])
                         exps.append(exp)
-                        print exp
                         break
         line = f.readline()
 
-    # print results
-    # for exp in exps:
-    #     print "###"
-    #     print exp['title'] + exp['subtitle'] +  exp['type'] + exp['year'] + exp['description'] + exp['keywords']
+    # parse contents file
+    f = codecs.open('contents.textdb', encoding='utf-8')
+    contents = {}
+    next_line = True
+    while next_line:
+        next_line = f.readline()
+        entry_res = entry_line_re.match(next_line)
+        # start new entry if line matches format
+        if entry_res:
+            string_id = entry_res.group(1)
+            lang = entry_res.group(3)
+            value = entry_res.group(4)
+            if not string_id in contents:
+                contents[string_id] = {}
+            contents[string_id][lang] = value
 
     # merge keywords lists
     kw_list = []
     for exp in exps:
         kw_list = kw_list + exp['keywords_slugs']
-    # remove doublons, sort alphabetically, and remove empty line
+    # remove doublons, sort alphabetically
     kw_list = list(set(kw_list))
-    # kw_list.remove('/')
     kw_list.sort()
 
     # create reverse experiences list by keywords
@@ -109,18 +120,18 @@ def parse_file(input_file_path):
         exp_cpt = 0
         exp_html[lang] = ''
         for exp in exps:
-            print exp['description']
-            inc_template = template.replace('%TITLE%', exp['title'][lang])
-            inc_template = inc_template.replace('%TITLESLUG%', exp['title_slug'][lang])
-            inc_template = inc_template.replace('%SUBTITLE%', exp['subtitle'][lang])
-            inc_template = inc_template.replace('%DATE%', exp['date'])
-            inc_template = inc_template.replace('%TYPE%', exp['type'])
-            inc_template = inc_template.replace('%DESCRIPTION%', exp['description'][lang])
-            inc_template = inc_template.replace('%KEYWORDS%', ','.join(exp['keywords_slugs']))
+            inc_template = template
+            inc_template = template.replace('%title%', exp['title'][lang])
+            inc_template = inc_template.replace('%title_slug%', exp['title_slug'][lang])
+            inc_template = inc_template.replace('%subtitle%', exp['subtitle'][lang])
+            inc_template = inc_template.replace('%date%', exp['date'])
+            inc_template = inc_template.replace('%type%', exp['type'])
+            inc_template = inc_template.replace('%description%', exp['description'][lang])
+            inc_template = inc_template.replace('%keywords_slugs%', ','.join(exp['keywords_slugs']))
             even_odd_str = 'odd'
             if exp_cpt % 2 == 0:
                 even_odd_str = 'even'
-            inc_template = inc_template.replace('%EVEN_ODD%', even_odd_str)
+            inc_template = inc_template.replace('%even_or_odd%', even_odd_str)
             exp_cpt += 1
             exp_html[lang] += inc_template
 
@@ -130,8 +141,8 @@ def parse_file(input_file_path):
     # increment template for each keyword
     kw_html = ''
     for kw in kw_list:
-        inc_template = template.replace('%SLUG%', kw)
-        inc_template = inc_template.replace('%TITLE%', kw)
+        inc_template = template.replace('%slug%', kw)
+        inc_template = inc_template.replace('%title%', kw)
         kw_html += inc_template
 
     # increment the layout file
@@ -139,8 +150,11 @@ def parse_file(input_file_path):
     layout = layout_file.read()
     for lang in langs:
         inc_layout = layout.replace('%EXPERIENCES%', exp_html[lang])
-        inc_layout = inc_layout.replace('%LOOKUPTABLE%', json.dumps(exp_lookup_list[lang]))
         inc_layout = inc_layout.replace('%KEYWORDS%', kw_html)
+        inc_layout = inc_layout.replace('%lookup_table_json%', json.dumps(exp_lookup_list[lang]))
+        # replace contents strings from the textdb
+        for string_id in contents:
+            inc_layout = inc_layout.replace('%' + string_id + '%', contents[string_id][lang])
         # output to new file
         filename = "index"
         if lang != 'en':
@@ -153,18 +167,18 @@ def parse_file(input_file_path):
 class EventHandler(pyinotify.ProcessEvent):
     def process_IN_MODIFY(self, event):
         print "file updated:", event.pathname
-        parse_file("experiences.textdb")
+        build()
 
 # Instanciate a new WatchManager (will be used to store watches).
 wm = pyinotify.WatchManager()
 handler = EventHandler()
 notifier = pyinotify.Notifier(wm, handler)
 
-for filename in ['experience-template.html', 'experiences.textdb', 'layout.html', 'keyword-template.html']:
+for filename in ['experience-template.html', 'experiences.textdb', 'contents.textdb', 'layout.html', 'keyword-template.html']:
     wm.add_watch(filename, pyinotify.IN_MODIFY)
 
-# initial parsing
-parse_file("experiences.textdb")
+# initial building
+build()
 
 # Loop forever and handle events.
 notifier.loop()
