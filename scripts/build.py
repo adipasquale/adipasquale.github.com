@@ -149,7 +149,18 @@ def build():
     layout_file = codecs.open("layout.html")
     layout = layout_file.read()
     for lang in langs:
-        inc_layout = layout.replace('%EXPERIENCES%', exp_html[lang])
+        # lang
+        lang_html = "<li class='" + lang + " selected'>&nbsp;</li>"
+        for lang_bis in langs:
+            if lang_bis != lang:
+                filename = "index.html"
+                if lang_bis != "en":
+                    filename = "index." + lang_bis + ".html"
+                lang_html += "<li class='" + lang_bis + "'><a href='" + filename + "'>&nbsp;</a></li>"
+        print lang_html
+        inc_layout = layout.replace('%LANGUAGES%', lang_html)
+
+        inc_layout = inc_layout.replace('%EXPERIENCES%', exp_html[lang])
         inc_layout = inc_layout.replace('%KEYWORDS%', kw_html)
         inc_layout = inc_layout.replace('%lookup_table_json%', json.dumps(exp_lookup_list[lang]))
         # replace contents strings from the textdb

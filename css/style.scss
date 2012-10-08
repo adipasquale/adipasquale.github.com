@@ -79,13 +79,17 @@ body{
 
 $side-sections-width: 20em;
 $center-section-width: 30em;
+$layout-container-color: #C0BB81;
+$layout-container-border: 1px solid #334A1A;
 
 #layout-container{
   height: 100%;
   width: 2*$side-sections-width + $center-section-width;
   margin: auto;
-  background: #C0BB81 url('../images/bgtexture-C0BB81.png') repeat;
+  background: $layout-container-color url('../images/bgtexture-C0BB81.png') repeat;
+  border: $layout-container-border;
   @include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
+  position: relative;
 }
 .layout-section{
   float: left;
@@ -101,6 +105,48 @@ $center-section-width: 30em;
   padding-top: 2%;
   width: $center-section-width;
   @include box-sizing(border-box);
+}
+
+#change-language{
+  position: absolute;
+  left: -31px; /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */
+  top: 20px;
+  li{
+    @include box-sizing(border-box);
+    position: relative;
+    width: 30px;
+    line-height: 40px;
+    margin-bottom: 10px;
+    background-color: $layout-container-color;
+    @include border-radius(3px 0 0 3px);  
+    &.selected{
+      width: 31px;
+      border-top: $layout-container-border;
+      border-left: $layout-container-border;
+      border-bottom: $layout-container-border;
+    }
+    background-repeat: no-repeat;
+    background-position: center center;
+    &.en{
+      background-image: url('../images/flags/en-transparent.png');
+      &:hover{
+        background-image: url('../images/flags/en.png');
+      }
+    }
+    &.fr{
+      background-image: url('../images/flags/fr-transparent.png');
+      &:hover{
+        background-image: url('../images/flags/fr.png');
+      }
+    }
+    a{
+      display: block;
+      width: 100%;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 
@@ -231,6 +277,21 @@ $center-section-width: 30em;
           color: #FFF;
         }
       }
+    }
+  }
+  .langs{
+    padding-left: 30px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    margin-bottom: 4px;
+    &.fluent{
+      background-image: url('../images/glyphicons_184_volume_up.png');
+    }
+    &.intermediate{
+      background-image: url('../images/glyphicons_183_volume_down.png');
+    }
+    &.basic{
+      background-image: url('../images/glyphicons_182_mute.png');
     }
   }
 }

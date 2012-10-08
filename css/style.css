@@ -58,8 +58,10 @@ body {
   width: 70em;
   margin: auto;
   background: #c0bb81 url("../images/bgtexture-C0BB81.png") repeat;
+  border: 1px solid #334a1a;
   -webkit-box-shadow: compact(0 0 5px 3px rgba(0, 0, 0, 0.65), false, false, false, false, false, false, false, false);
-  box-shadow: compact(0 0 5px 3px rgba(0, 0, 0, 0.65), false, false, false, false, false, false, false, false); }
+  box-shadow: compact(0 0 5px 3px rgba(0, 0, 0, 0.65), false, false, false, false, false, false, false, false);
+  position: relative; }
 
 .layout-section {
   float: left;
@@ -84,6 +86,45 @@ body {
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box; }
+
+#change-language {
+  position: absolute;
+  left: -31px;
+  /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */
+  top: 20px; }
+  #change-language li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    width: 30px;
+    line-height: 40px;
+    margin-bottom: 10px;
+    background-color: #c0bb81;
+    -webkit-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+    background-repeat: no-repeat;
+    background-position: center center; }
+    #change-language li.selected {
+      width: 31px;
+      border-top: 1px solid #334a1a;
+      border-left: 1px solid #334a1a;
+      border-bottom: 1px solid #334a1a; }
+    #change-language li.en {
+      background-image: url("../images/flags/en-transparent.png"); }
+      #change-language li.en:hover {
+        background-image: url("../images/flags/en.png"); }
+    #change-language li.fr {
+      background-image: url("../images/flags/fr-transparent.png"); }
+      #change-language li.fr:hover {
+        background-image: url("../images/flags/fr.png"); }
+    #change-language li a {
+      display: block;
+      width: 100%; }
+      #change-language li a:hover {
+        text-decoration: none; }
 
 /* About Me */
 #about-me .photo {
@@ -188,3 +229,14 @@ body {
       #extra ul#keywords li button:hover, #extra ul#keywords li button.selected {
         background-color: #834E1C;
         color: #FFF; }
+#extra .langs {
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  margin-bottom: 4px; }
+  #extra .langs.fluent {
+    background-image: url("../images/glyphicons_184_volume_up.png"); }
+  #extra .langs.intermediate {
+    background-image: url("../images/glyphicons_183_volume_down.png"); }
+  #extra .langs.basic {
+    background-image: url("../images/glyphicons_182_mute.png"); }
