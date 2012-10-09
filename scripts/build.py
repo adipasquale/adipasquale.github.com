@@ -150,14 +150,13 @@ def build():
     layout = layout_file.read()
     for lang in langs:
         # lang
-        lang_html = "<li class='" + lang + " selected'>&nbsp;</li>"
+        lang_html = "<li class='selected'><a href='#' class='" + lang + "'>&nbsp;</a></li>"
         for lang_bis in langs:
             if lang_bis != lang:
                 filename = "index.html"
                 if lang_bis != "en":
                     filename = "index." + lang_bis + ".html"
-                lang_html += "<li class='" + lang_bis + "'><a href='" + filename + "'>&nbsp;</a></li>"
-        print lang_html
+                lang_html += "<li><a href='" + filename + "' class='" + lang_bis + "'>&nbsp;</a></li>"
         inc_layout = layout.replace('%LANGUAGES%', lang_html)
 
         inc_layout = inc_layout.replace('%EXPERIENCES%', exp_html[lang])

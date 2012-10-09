@@ -1,35 +1,12 @@
 @import 'bourbon/bourbon';
 @import 'reset.css';
 
-$break-small: 320px;
-$break-large: 1024px;
+/* Layout constants */
 
-@mixin respond-to($media) {
-  @if $media == handhelds {
-    @media only screen and (max-width: $break-small) { @content; }
-  }
-  @else if $media == medium-screens {
-    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
-  }
-  @else if $media == wide-screens {
-    @media only screen and (min-width: $break-large) { @content; }
-  }
-}
-
-.profile-pic {
-  @include respond-to(handhelds) { width: 100% ;}
-  @include respond-to(medium-screens) { width: 125px; }
-  @include respond-to(wide-screens) { float: none; }
-}
-
-@mixin box-sizing($sizing) {
-  -webkit-box-sizing: $sizing;
-   -moz-box-sizing: $sizing;
-    -ms-box-sizing: $sizing;
-     -o-box-sizing: $sizing;
-        box-sizing: $sizing;
-}
-
+$side-sections-width: 20em;
+$center-section-width: 30em;
+$layout-container-color: #C0BB81;
+$layout-container-border: 1px solid #334A1A;
 
 /* Text styling */
 
@@ -51,6 +28,15 @@ a {
 h1{
   font-size: 1.5em;
   line-height: 1.5em;
+  margin-bottom: 0.5em;
+}
+h2{
+  font-size: 1.3em;
+  line-height: 1.3em;
+  margin: 1em 0 0.5em 0;
+  &.no-top-margin{
+    margin-top: 0;
+  }
 }
 p {
   margin: 1em 0 1em 0;
@@ -62,88 +48,157 @@ p {
   display: none;
 }
 
+/* custom common mixins */
+
+@mixin noise{
+  background: url('../images/transparent-noise.png') repeat;
+}
+@mixin box-sizing($sizing) {
+  -webkit-box-sizing: $sizing;
+   -moz-box-sizing: $sizing;
+    -ms-box-sizing: $sizing;
+     -o-box-sizing: $sizing;
+        box-sizing: $sizing;
+}
+// redefine the respective limits for layouts
+$break-small: $side-sections-width + $center-section-width;
+$break-large: 2 * $side-sections-width + $center-section-width;
+@mixin respond-to($media) {
+  @if $media == one-col {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == two-cols {
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+  }
+  @else if $media == one-or-two-cols {
+    @media only screen and (max-width: $break-large - 1) { @content; }
+  }
+  @else if $media == two-or-three-cols {
+    @media only screen and (min-width: $break-small + 1) { @content; }
+  }
+  @else if $media == three-cols {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+}
 
 /* Global Layout */
 
 html, body{
   height: 100%;
-  overflow: hidden;
+  @include respond-to(three-cols){
+    overflow: hidden;
+  }
 }
 body{
-  background: #834E1C url('../images/bgtexture-834E1C.png') repeat;
-  /* this box-sizing allows adding a padding withouth messing up the */
-  /* inherited 100% height */
-  @include box-sizing(border-box);
-  padding: 2%;
+  @include noise;
+  background-color: #834E1C;
+  @include respond-to(three-cols) {
+    /* this box-sizing allows adding a padding withouth messing up the */
+    /* inherited 100% height */
+    @include box-sizing(border-box);
+    padding: 2%;
+  }
 }
-
-$side-sections-width: 20em;
-$center-section-width: 30em;
-$layout-container-color: #C0BB81;
-$layout-container-border: 1px solid #334A1A;
 
 #layout-container{
-  height: 100%;
-  width: 2*$side-sections-width + $center-section-width;
-  margin: auto;
-  background: $layout-container-color url('../images/bgtexture-C0BB81.png') repeat;
-  border: $layout-container-border;
-  @include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
+  @include noise;
+  background-color: $layout-container-color;
   position: relative;
+  @include respond-to(one-or-two-cols) { 
+    width: 100%; 
+  }
+  @include respond-to(three-cols) { 
+    height: 100%;
+    @include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
+    width: 2*$side-sections-width + $center-section-width;
+    border: $layout-container-border;
+    margin: auto;
+  }
 }
 .layout-section{
-  float: left;
-  height: 100%;
+  @include respond-to(one-col) {
+    width: 100%; 
+  }
+  @include respond-to(two-cols) {
+    float: left;
+  }
+  @include respond-to(three-cols) { 
+    float: left;
+    height: 100%;
+  }
 }
 .side-section{
-  width: $side-sections-width;
-  padding: 2%;
-  @include box-sizing(border-box);
-  overflow: auto; /* for the middle section, we only want experiences to have this */
+  overflow: auto;
+  @include respond-to(one-col) {
+    width: 100%; 
+  }
+  @include respond-to(two-or-three-cols) {
+    padding: 2%;
+    @include box-sizing(border-box);
+    width: $side-sections-width;
+  }
 }
 #experiences{
-  padding-top: 2%;
-  width: $center-section-width;
-  @include box-sizing(border-box);
+  @include respond-to(one-col) {
+    width: 100%; 
+  }
+  @include respond-to(two-or-three-cols) {
+    padding-top: 2%;
+    width: $center-section-width;
+    @include box-sizing(border-box);
+  }
 }
 
 #change-language{
   position: absolute;
-  left: -31px; /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */
-  top: 20px;
   li{
     @include box-sizing(border-box);
     position: relative;
     width: 30px;
-    line-height: 40px;
     margin-bottom: 10px;
+    @include noise;
     background-color: $layout-container-color;
-    @include border-radius(3px 0 0 3px);  
-    &.selected{
-      width: 31px;
-      border-top: $layout-container-border;
-      border-left: $layout-container-border;
-      border-bottom: $layout-container-border;
-    }
-    background-repeat: no-repeat;
-    background-position: center center;
-    &.en{
-      background-image: url('../images/flags/en-transparent.png');
-      &:hover{
-        background-image: url('../images/flags/en.png');
-      }
-    }
-    &.fr{
-      background-image: url('../images/flags/fr-transparent.png');
-      &:hover{
-        background-image: url('../images/flags/fr.png');
-      }
-    }
     a{
       display: block;
       width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
       &:hover{
         text-decoration: none;
+      }
+      &.en{
+        background-image: url('../images/flags/en-transparent.png');
+        &:hover{
+          background-image: url('../images/flags/en.png');
+        }
+      }
+      &.fr{
+        background-image: url('../images/flags/fr-transparent.png');
+        &:hover{
+          background-image: url('../images/flags/fr.png');
+        }
+      }
+    }
+  }
+  @include respond-to(one-or-two-cols) {
+    top: 0;
+    right: 0;
+    li{
+      display: block;
+      float: left;
+    }
+  }
+  @include respond-to(three-cols) {
+    top: 20px;
+    left: -31px; /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */
+    li{
+      @include border-radius(3px 0 0 3px);
+      &.selected{
+        width: 31px;
+        border-top: $layout-container-border;
+        border-left: $layout-container-border;
+        border-bottom: $layout-container-border;
       }
     }
   }
@@ -168,10 +223,6 @@ $layout-container-border: 1px solid #334A1A;
       margin-right: 5px;
     }
   }
-  h1{
-    font-size: 150%;
-    margin-bottom: 10px;
-  }
   .links{
     list-style: none;
     margin-top: 10px;
@@ -187,71 +238,75 @@ $layout-container-border: 1px solid #334A1A;
 
 #experiences{
   overflow: hidden;
-  h1{
+  h2{
     position: absolute;
   }
-  ul{
-    list-style: none;
-    margin-top: 3em;
-    height: 100%;
-    overflow: auto;
+  #experiences-wrapper{
     @include box-sizing(border-box);
-    li{
-      position: relative;
-      width: 100%;
-      &.even{
-        background: #CBD4D0 url('../images/bgtexture-CBD4D0.png') repeat;
-      }
-      &.odd{
-        background: #717E6F url('../images/bgtexture-717E6F.png') repeat;
-      }
-      .experience{
-        @include box-sizing(border-box);
+    padding-top: 2.5em;
+    height: 100%;
+    ul{
+      list-style: none;
+      height: 100%;
+      overflow: auto;
+      li{
+        position: relative;
         width: 100%;
-        height: 4em;
-        overflow: hidden;
-        padding: 0 0 0 10%;
-        background-repeat: no-repeat;
-        background-size: auto 35px;
-        background-position: 2% 10px;
-        &.school{
-          background-image: url('../images/icon-school.svg');
+        @include noise;
+        &.even{
+          background-color: #CBD4D0;
         }
-        &.work{
-          background-image: url('../images/icon-chair.svg');
+        &.odd{
+          background-color: #717E6F;
         }
-        &.perso{
-          background-image: url('../images/icon-idea.svg');
-        }
-        .abstract{
-          cursor: pointer;
-          .date{
-            width: 10%;
-            float: right;
-            height: 100%;
-            font-size: 80%;
-            line-height: 50px;
+        .experience{
+          @include box-sizing(border-box);
+          width: 100%;
+          height: 3.5em;
+          overflow: hidden;
+          padding: 1% 0 0 12%;
+          background-repeat: no-repeat;
+          background-size: auto 35px;
+          background-position: 2.5% 7px;
+          &.school{
+            background-image: url('../images/icon-school.svg');
           }
-          h1{
-            font-size: 110%;
-            line-height: 50px;
-            display: inline-block;
+          &.work{
+            background-image: url('../images/icon-chair.svg');
           }
-          .subtitle{
-            font-style: italic;
-            display: inline-block;
-            margin: 0 12% 0 10px;
+          &.perso{
+            background-image: url('../images/icon-idea.svg');
           }
-        }
-        .content{
-          display: none;
-          margin-right: 10%;
-        }
-        &.unfolded{
-          min-height: 50px;
-          height: auto;
+          .abstract{
+            cursor: pointer;
+            .date{
+              width: 10%;
+              float: right;
+              height: 100%;
+              font-size: 80%;
+              line-height: 50px;
+            }
+            h1{
+              font-size: 110%;
+              line-height: 50px;
+              display: inline-block;
+            }
+            .subtitle{
+              font-style: italic;
+              display: inline-block;
+              margin: 0 12% 0 10px;
+            }
+          }
           .content{
-            display: block;
+            display: none;
+            margin-right: 10%;
+          }
+          &.unfolded{
+            min-height: 50px;
+            height: auto;
+            .content{
+              display: block;
+            }
           }
         }
       }
@@ -261,11 +316,30 @@ $layout-container-border: 1px solid #334A1A;
 
 /* Extra */
 #extra{
+  @include respond-to(two-cols){
+    width: 100%;
+    padding: 0;
+    margin-top: 2em;
+    h2{
+      margin-top: 0;
+    }
+    #keywords-sub-section{
+      width: $side-sections-width;
+    }
+    #langs-sub-section{
+      width: $center-section-width;
+      padding-left: 2em;
+    }
+    .layout-sub-section{
+      float: left;
+    }
+  }
   ul#keywords{
     width: 100%;
     li{
       float: left;
       button{
+        cursor: pointer;
         background-color: transparent;
         border: 1px solid #834E1C;
         @include border-radius(2px);

@@ -12,7 +12,7 @@
   <div id="layout-container">
 
     <ul id="change-language">
-      <li class='fr selected'>&nbsp;</li><li class='en'><a href='index.html'>&nbsp;</a></li>
+      <li class='selected'><a href='#' class='fr'>&nbsp;</a></li><li><a href='index.html' class='en'>&nbsp;</a></li>
     </ul>
 
     <div class="layout-section side-section" id="about-me">
@@ -40,13 +40,14 @@
     </div>
 
     <div class="layout-section" id="experiences">
-      <h1>Experiences</h1>
-      <ul>
-        <li class="even">
+      <h2 class="no-top-margin">Experiences</h2>
+      <div id="experiences-wrapper">
+        <ul>
+          <li class="even">
   <div class="experience school" data-keywords="asia" id="semestre-d-echange-a-kaist">
     <div class="abstract">
       <div class="date">2012</div>
-      <h2>Semestre d'échange à KAIST</h2>
+      <h3>Semestre d'échange à KAIST</h3>
       <span class="subtitle">Ecole Scientifique Coréenne Renommée</span> 
     </div>
     <div class="content">
@@ -54,54 +55,32 @@
     </div>
   </div>
 </li> <li class="odd">
-  <div class="experience perso" data-keywords="js,dataviz,open-data" id="pacs-dataviz">
-    <div class="abstract">
-      <div class="date">2011</div>
-      <h2>PACS dataviz</h2>
-      <span class="subtitle">lauréat d'un concours open data organisé par le gouvernement</span> 
-    </div>
-    <div class="content">
-      <p class="description">La seule contrainte de ce concours était d'utiliser un jeu de données nouvellement ouvert parl'état français. J'ai créé une carte interactive représentant le nombre de PACS conclus par annéepar région. Le jury a sélectionné mon projet parmi 4 lauréats et nous avons eu l'occasion de participerà LeWeb'11 et y démontrer nos applications.</p>
-    </div>
-  </div>
-</li> <li class="even">
-  <div class="experience perso" data-keywords="php,mysql,symfony" id="izikiz-com">
-    <div class="abstract">
-      <div class="date">2011</div>
-      <h2>Izikiz.com</h2>
-      <span class="subtitle">échange de logements pour les étudiants en échange</span> 
-    </div>
-    <div class="content">
-      <p class="description">L'idée de ce projet est d'appliquer le principe d'échange de logements aux étudiants d'échange,qui présentent des flux symétriques adéquats. Avec ce concept et quelques ébauches d'interface, nous avonsété acceptés pour recevoir une aide régionale, que nous avons utilisé pour embaucher des graphistes pour réaliserle logo et le design. J'ai de mon côté commencé à développer le site.Il y a déjà eu quelques itérations dans le processus de développement, mais le site doit toujours être finiet lancé.</p>
-    </div>
-  </div>
-</li> <li class="odd">
-  <div class="experience perso" data-keywords="android,music" id="appli-android-de-partitions-musicales">
-    <div class="abstract">
-      <div class="date">2011</div>
-      <h2>Appli Android de partitions musicales</h2>
-      <span class="subtitle">prototype pour un concours d'applis mobiles</span> 
-    </div>
-    <div class="content">
-      <p class="description">J'ai rejoint l'équipe d'un amis pour participer au concours Alten ID'Mobile (1ère édition)Notre projet était de créer une app Android de partitions musicales, qui permettrait à la fois de gérer unecollection et surtout de faciliter l'entraînement du musicien : faire tourner les pages automatiquement lorsquele musicien est en train de jouer, signaler les fausses notes ... C'était un projet ambitieux, et nous avonspassé beaucoup de temps à manipuler les FFTs, les fenêtres de temps et d'échantillonage .. Nous avons réussià construire un prototype capable de reconnaître une partition précise, jouée par un ordinateur, et tourner lespages synchronément.Nous avions aussi commencé à généraliser l'app à des instruments réels, et à n'importe quelle partition (graceau format lilypond), mais n'avons pas fini en temps voulu pour le concours.</p>
-    </div>
-  </div>
-</li> <li class="even">
   <div class="experience work" data-keywords="js,node-js,linked-data,android,php,wordpress,dataviz" id="stage-chez-joshfire">
     <div class="abstract">
       <div class="date">2012 summer</div>
-      <h2>Stage chez Joshfire</h2>
+      <h3>Stage chez Joshfire</h3>
       <span class="subtitle">Startup Web & Objets connectés</span> 
     </div>
     <div class="content">
       <p class="description">Voici une liste des missions effectuées chez Joshfire :* Prototype d'appli Android pour un objet connecté au look retro, avec des tweaks systèmes.* Templates de visualisation de données pour la Factory (régions sur une carte, frise chronologique), avec optimisation côté client.* Développement du thème Wordpress pour TEDxParis, avec utilisation des Custom Types Taxonomies.* Quelques améliorations internes à la Factory : sur la source de données Google Spreadsheets, et sur la gestion des linked data* Un prototype d'appli web pour un jeu de hasard multi-joueurs temps-réel. Utilisation de Node.js, socket.io, et du SDK JS de Facebook</p>
     </div>
   </div>
+</li> <li class="even">
+  <div class="experience perso" data-keywords="js,dataviz,open-data" id="pacs-dataviz">
+    <div class="abstract">
+      <div class="date">2011</div>
+      <h3>PACS dataviz</h3>
+      <span class="subtitle">lauréat d'un concours open data organisé par le gouvernement</span> 
+    </div>
+    <div class="content">
+      <p class="description">La seule contrainte de ce concours était d'utiliser un jeu de données nouvellement ouvert parl'état français. J'ai créé une carte interactive représentant le nombre de PACS conclus par annéepar région. Le jury a sélectionné mon projet parmi 4 lauréats et nous avons eu l'occasion de participerà LeWeb'11 et y démontrer nos applications.</p>
+    </div>
+  </div>
 </li> <li class="odd">
   <div class="experience work" data-keywords="rubyonrails,js" id="stage-chez-stribe">
     <div class="abstract">
       <div class="date">2011 summer</div>
-      <h2>Stage chez Stribe</h2>
+      <h3>Stage chez Stribe</h3>
       <span class="subtitle">Développement d'un réseau social</span> 
     </div>
     <div class="content">
@@ -109,10 +88,32 @@
     </div>
   </div>
 </li> <li class="even">
+  <div class="experience perso" data-keywords="android,music" id="appli-android-de-partitions-musicales">
+    <div class="abstract">
+      <div class="date">2011</div>
+      <h3>Appli Android de partitions musicales</h3>
+      <span class="subtitle">prototype pour un concours d'applis mobiles</span> 
+    </div>
+    <div class="content">
+      <p class="description">J'ai rejoint l'équipe d'un amis pour participer au concours Alten ID'Mobile (1ère édition)Notre projet était de créer une app Android de partitions musicales, qui permettrait à la fois de gérer unecollection et surtout de faciliter l'entraînement du musicien : faire tourner les pages automatiquement lorsquele musicien est en train de jouer, signaler les fausses notes ... C'était un projet ambitieux, et nous avonspassé beaucoup de temps à manipuler les FFTs, les fenêtres de temps et d'échantillonage .. Nous avons réussià construire un prototype capable de reconnaître une partition précise, jouée par un ordinateur, et tourner lespages synchronément.Nous avions aussi commencé à généraliser l'app à des instruments réels, et à n'importe quelle partition (graceau format lilypond), mais n'avons pas fini en temps voulu pour le concours.</p>
+    </div>
+  </div>
+</li> <li class="odd">
+  <div class="experience perso" data-keywords="php,mysql,symfony" id="izikiz-com">
+    <div class="abstract">
+      <div class="date">2011</div>
+      <h3>Izikiz.com</h3>
+      <span class="subtitle">échange de logements pour les étudiants en échange</span> 
+    </div>
+    <div class="content">
+      <p class="description">L'idée de ce projet est d'appliquer le principe d'échange de logements aux étudiants d'échange,qui présentent des flux symétriques adéquats. Avec ce concept et quelques ébauches d'interface, nous avonsété acceptés pour recevoir une aide régionale, que nous avons utilisé pour embaucher des graphistes pour réaliserle logo et le design. J'ai de mon côté commencé à développer le site.Il y a déjà eu quelques itérations dans le processus de développement, mais le site doit toujours être finiet lancé.</p>
+    </div>
+  </div>
+</li> <li class="even">
   <div class="experience work" data-keywords="c++,asia" id="stage-chez-alcatel-lucent-shanghai-bell">
     <div class="abstract">
       <div class="date">2010 summer</div>
-      <h2>Stage chez Alcatel Lucent Shanghai Bell</h2>
+      <h3>Stage chez Alcatel Lucent Shanghai Bell</h3>
       <span class="subtitle">Développement d'outils internes</span> 
     </div>
     <div class="content">
@@ -123,7 +124,7 @@
   <div class="experience school" data-keywords="" id="integre-l-insa-de-lyon">
     <div class="abstract">
       <div class="date">2007</div>
-      <h2>Intégré l'INSA de Lyon</h2>
+      <h3>Intégré l'INSA de Lyon</h3>
       <span class="subtitle">Ecole d'ingénieurs renommée</span> 
     </div>
     <div class="content">
@@ -134,7 +135,7 @@
   <div class="experience perso" data-keywords="php,mysql" id="msntrucastuce-com">
     <div class="abstract">
       <div class="date">2005</div>
-      <h2>MsnTrucAstuce.com</h2>
+      <h3>MsnTrucAstuce.com</h3>
       <span class="subtitle">premier site amateur</span> 
     </div>
     <div class="content">
@@ -142,14 +143,16 @@
     </div>
   </div>
 </li> 
-      </ul>
+        </ul>
+      </div>
     </div>
     
     <div class="layout-section side-section" id="extra">
       
-      <h1>Purée de mots-clés</h1>
-      <ul id="keywords">
-        <li>
+      <div class="layout-sub-section" id="keywords-sub-section">
+        <h2 class="no-top-margin">Purée de mots-clés</h2>
+        <ul id="keywords">
+          <li>
   <button class="keyword" data-keyword="android">
     android
   </button>
@@ -206,21 +209,24 @@
     wordpress
   </button>
 </li>
-      </ul>
-      <div class="clear"></div>
+        </ul>
+        <div class="clear"></div>
+      </div>
 
-      <h1>Langues</h1>
-      <ul>
-        <li class="langs fluent" title="au top du top !">
-          Français et Anglais
-        </li>
-        <li class="langs intermediate" title="je me débrouille ..">
-          Italien et espagnol
-        </li>
-        <li class="langs basic" title="ultra basique  ">
-          Chinois et Coréen
-        </li>
-      </ul>
+      <div class="layout-sub-section" id="langs-sub-section">
+        <h2>Langues</h2>
+        <ul>
+          <li class="langs fluent" title="au top du top !">
+            Français et Anglais
+          </li>
+          <li class="langs intermediate" title="je me débrouille ..">
+            Italien et espagnol
+          </li>
+          <li class="langs basic" title="ultra basique  ">
+            Chinois et Coréen
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="clear"></div>
@@ -230,7 +236,7 @@
   <script type="text/javascript">
   $(document).ready( function(){
 
-    var lookupTable = {"symfony": ["izikiz-com"], "php": ["izikiz-com", "stage-chez-joshfire", "msntrucastuce-com"], "dataviz": ["pacs-dataviz", "stage-chez-joshfire"], "rubyonrails": ["stage-chez-stribe"], "wordpress": ["stage-chez-joshfire"], "c++": ["stage-chez-alcatel-lucent-shanghai-bell"], "js": ["pacs-dataviz", "stage-chez-joshfire", "stage-chez-stribe"], "music": ["appli-android-de-partitions-musicales"], "asia": ["semestre-d-echange-a-kaist", "stage-chez-alcatel-lucent-shanghai-bell"], "mysql": ["izikiz-com", "msntrucastuce-com"], "open-data": ["pacs-dataviz"], "android": ["appli-android-de-partitions-musicales", "stage-chez-joshfire"], "node-js": ["stage-chez-joshfire"], "linked-data": ["stage-chez-joshfire"]};
+    var lookupTable = {"symfony": ["izikiz-com"], "php": ["stage-chez-joshfire", "izikiz-com", "msntrucastuce-com"], "dataviz": ["stage-chez-joshfire", "pacs-dataviz"], "rubyonrails": ["stage-chez-stribe"], "wordpress": ["stage-chez-joshfire"], "c++": ["stage-chez-alcatel-lucent-shanghai-bell"], "js": ["stage-chez-joshfire", "pacs-dataviz", "stage-chez-stribe"], "music": ["appli-android-de-partitions-musicales"], "asia": ["semestre-d-echange-a-kaist", "stage-chez-alcatel-lucent-shanghai-bell"], "mysql": ["izikiz-com", "msntrucastuce-com"], "open-data": ["pacs-dataviz"], "android": ["stage-chez-joshfire", "appli-android-de-partitions-musicales"], "node-js": ["stage-chez-joshfire"], "linked-data": ["stage-chez-joshfire"]};
 
 
     $(".keyword").click(function(e){

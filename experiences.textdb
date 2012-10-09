@@ -12,6 +12,28 @@
 
 
 ###
+[title|en] Internship at Joshfire
+[title|fr] Stage chez Joshfire
+[subtitle|en] Web & connected objects startup
+[subtitle|fr] Startup Web & Objets connectés
+[type] work
+[date] 2012 summer
+[description|en] Here is a list of the projects I worked on at Joshfire :
+  * Android prototype for a retro-style connected object, with some OS tweaks.
+  * Dataviz templates for the Factory (areas on a map, and timeline), with a focus on client-side JS optimization.
+  * Development of TEDxParis.com Wordpress theme, using custom types taxonomies.
+  * Some improvements on the Factory : Google Spreadsheets datasource, and linked data handling.
+  * A web-app prototype for a multiplayer hazard game using node.js, socket.io, and Facebook JS SDK.
+[description|fr] Voici une liste des missions effectuées chez Joshfire :
+  * Prototype d'appli Android pour un objet connecté au look retro, avec des tweaks systèmes.
+  * Templates de visualisation de données pour la Factory (régions sur une carte, frise chronologique), avec optimisation côté client.
+  * Développement du thème Wordpress pour TEDxParis, avec utilisation des Custom Types Taxonomies.
+  * Quelques améliorations internes à la Factory : sur la source de données Google Spreadsheets, et sur la gestion des linked data
+  * Un prototype d'appli web pour un jeu de hasard multi-joueurs temps-réel. Utilisation de Node.js, socket.io, et du SDK JS de Facebook
+[keywords] JS, Node.JS, linked data, Android, PHP, Wordpress, dataviz
+
+
+###
 [title|en] PACS dataviz
 [title|fr] PACS dataviz
 [subtitle|en] open data government contest laureate
@@ -30,23 +52,24 @@
 
 
 ###
-[title|en] Izikiz.com
-[title|fr] Izikiz.com
-[subtitle|en] exchange students house-swapping project
-[subtitle|fr] échange de logements pour les étudiants en échange
-[type] perso
-[date] 2011
-[description|en] The idea of this project was to apply the house-swapping concept to the exchange students crowd,
-  who has adequate symetrical flows. With some wireframes, we applied and earned a few regional fundings,
-  got a custom design and logo made by graphic freelancers, and I started developing it. 
-  There were quite already quite a few iterations, and it has yet to be finished and properly launched.
-[description|fr] L'idée de ce projet est d'appliquer le principe d'échange de logements aux étudiants d'échange,
-  qui présentent des flux symétriques adéquats. Avec ce concept et quelques ébauches d'interface, nous avons
-  été acceptés pour recevoir une aide régionale, que nous avons utilisé pour embaucher des graphistes pour réaliser
-  le logo et le design. J'ai de mon côté commencé à développer le site.
-  Il y a déjà eu quelques itérations dans le processus de développement, mais le site doit toujours être fini
-  et lancé.
-[keywords] PHP, MySQL, symfony
+[title|en] Internship at Stribe
+[title|fr] Stage chez Stribe
+[subtitle|en] Social network development
+[subtitle|fr] Développement d'un réseau social
+[type] work
+[date] 2011 summer
+[description|en] Stribe won LeWeb'09 Startup Contest for a social JS tool they built, but I worked on
+  a different pet project of theirs : a social network for couples.
+  I helped implement new features and fix bugs.  It was the occasion to practice extensively RubyOnRails, both frontend and backend, and it's deploy setup.
+  This was an overall valuable experience both technically and socially, for taking initiatives in small teams
+  and participating in collaborative creative sessions.
+[description|fr] Stribe a gagné la compétition de Startup de LeWeb'09 pour un outil de socialisation JS, mais j'ai
+  travaillé sur un de leurs autres projets : un réseau social pour couples.
+  J'ai aidé à corriger des bugs et à implémenter de nouvelles fonctionnalités. C'était l'occasion de pratiquer 
+  intensivement RubyOnRails, côté frontend et backend, et aussi les procédures de déploiement.
+  Cette expérience m'a apporté beaucoup techniquement ainsi que dans la manière de travailler, la prise d'initiatives
+  dans des petits groupes, et la participations aux sessions créatives.
+[keywords] RubyOnRails, JS
 
 
 ###
@@ -77,46 +100,23 @@
 
 
 ###
-[title|en] Internship at Joshfire
-[title|fr] Stage chez Joshfire
-[subtitle|en] Web & connected objects startup
-[subtitle|fr] Startup Web & Objets connectés
-[type] work
-[date] 2012 summer
-[description|en] Here is a list of the projects I worked on at Joshfire :
-  * Android prototype for a retro-style connected object, with some OS tweaks.
-  * Dataviz templates for the Factory (areas on a map, and timeline), with a focus on client-side JS optimization.
-  * Development of TEDxParis.com Wordpress theme, using custom types taxonomies.
-  * Some improvements on the Factory : Google Spreadsheets datasource, and linked data handling.
-  * A web-app prototype for a multiplayer hazard game using node.js, socket.io, and Facebook JS SDK.
-[description|fr] Voici une liste des missions effectuées chez Joshfire :
-  * Prototype d'appli Android pour un objet connecté au look retro, avec des tweaks systèmes.
-  * Templates de visualisation de données pour la Factory (régions sur une carte, frise chronologique), avec optimisation côté client.
-  * Développement du thème Wordpress pour TEDxParis, avec utilisation des Custom Types Taxonomies.
-  * Quelques améliorations internes à la Factory : sur la source de données Google Spreadsheets, et sur la gestion des linked data
-  * Un prototype d'appli web pour un jeu de hasard multi-joueurs temps-réel. Utilisation de Node.js, socket.io, et du SDK JS de Facebook
-[keywords] JS, Node.JS, linked data, Android, PHP, Wordpress, dataviz
-
-
-###
-[title|en] Internship at Stribe
-[title|fr] Stage chez Stribe
-[subtitle|en] Social network development
-[subtitle|fr] Développement d'un réseau social
-[type] work
-[date] 2011 summer
-[description|en] Stribe won LeWeb'09 Startup Contest for a social JS tool they built, but I worked on
-  a different pet project of theirs : a social network for couples.
-  I helped implement new features and fix bugs.  It was the occasion to practice extensively RubyOnRails, both frontend and backend, and it's deploy setup.
-  This was an overall valuable experience both technically and socially, for taking initiatives in small teams
-  and participating in collaborative creative sessions.
-[description|fr] Stribe a gagné la compétition de Startup de LeWeb'09 pour un outil de socialisation JS, mais j'ai
-  travaillé sur un de leurs autres projets : un réseau social pour couples.
-  J'ai aidé à corriger des bugs et à implémenter de nouvelles fonctionnalités. C'était l'occasion de pratiquer 
-  intensivement RubyOnRails, côté frontend et backend, et aussi les procédures de déploiement.
-  Cette expérience m'a apporté beaucoup techniquement ainsi que dans la manière de travailler, la prise d'initiatives
-  dans des petits groupes, et la participations aux sessions créatives.
-[keywords] RubyOnRails, JS
+[title|en] Izikiz.com
+[title|fr] Izikiz.com
+[subtitle|en] exchange students house-swapping project
+[subtitle|fr] échange de logements pour les étudiants en échange
+[type] perso
+[date] 2011
+[description|en] The idea of this project was to apply the house-swapping concept to the exchange students crowd,
+  who has adequate symetrical flows. With some wireframes, we applied and earned a few regional fundings,
+  got a custom design and logo made by graphic freelancers, and I started developing it. 
+  There were quite already quite a few iterations, and it has yet to be finished and properly launched.
+[description|fr] L'idée de ce projet est d'appliquer le principe d'échange de logements aux étudiants d'échange,
+  qui présentent des flux symétriques adéquats. Avec ce concept et quelques ébauches d'interface, nous avons
+  été acceptés pour recevoir une aide régionale, que nous avons utilisé pour embaucher des graphistes pour réaliser
+  le logo et le design. J'ai de mon côté commencé à développer le site.
+  Il y a déjà eu quelques itérations dans le processus de développement, mais le site doit toujours être fini
+  et lancé.
+[keywords] PHP, MySQL, symfony
 
 
 ###

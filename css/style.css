@@ -1,14 +1,5 @@
 @import url(reset.css);
-@media only screen and (max-width: 320px) {
-  .profile-pic {
-    width: 100%; } }
-@media only screen and (min-width: 321px) and (max-width: 1023px) {
-  .profile-pic {
-    width: 125px; } }
-@media only screen and (min-width: 1024px) {
-  .profile-pic {
-    float: none; } }
-
+/* Layout constants */
 /* Text styling */
 html {
   font-size: 100%; }
@@ -26,7 +17,15 @@ a {
 
 h1 {
   font-size: 1.5em;
-  line-height: 1.5em; }
+  line-height: 1.5em;
+  margin-bottom: 0.5em; }
+
+h2 {
+  font-size: 1.3em;
+  line-height: 1.3em;
+  margin: 1em 0 0.5em 0; }
+  h2.no-top-margin {
+    margin-top: 0; }
 
 p {
   margin: 1em 0 1em 0; }
@@ -37,61 +36,85 @@ p {
 .hide {
   display: none; }
 
+/* custom common mixins */
 /* Global Layout */
 html, body {
-  height: 100%;
-  overflow: hidden; }
+  height: 100%; }
+  @media only screen and (min-width: 70em) {
+    html, body {
+      overflow: hidden; } }
 
 body {
-  background: #834e1c url("../images/bgtexture-834E1C.png") repeat;
-  /* this box-sizing allows adding a padding withouth messing up the */
-  /* inherited 100% height */
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 2%; }
+  background: url("../images/transparent-noise.png") repeat;
+  background-color: #834E1C; }
+  @media only screen and (min-width: 70em) {
+    body {
+      /* this box-sizing allows adding a padding withouth messing up the */
+      /* inherited 100% height */
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 2%; } }
 
 #layout-container {
-  height: 100%;
-  width: 70em;
-  margin: auto;
-  background: #c0bb81 url("../images/bgtexture-C0BB81.png") repeat;
-  border: 1px solid #334a1a;
-  -webkit-box-shadow: compact(0 0 5px 3px rgba(0, 0, 0, 0.65), false, false, false, false, false, false, false, false);
-  box-shadow: compact(0 0 5px 3px rgba(0, 0, 0, 0.65), false, false, false, false, false, false, false, false);
+  background: url("../images/transparent-noise.png") repeat;
+  background-color: #c0bb81;
   position: relative; }
+  @media only screen and (max-width: 69em) {
+    #layout-container {
+      width: 100%; } }
+  @media only screen and (min-width: 70em) {
+    #layout-container {
+      height: 100%;
+      -webkit-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.65);
+      width: 70em;
+      border: 1px solid #334a1a;
+      margin: auto; } }
 
-.layout-section {
-  float: left;
-  height: 100%; }
+@media only screen and (max-width: 50em) {
+  .layout-section {
+    width: 100%; } }
+@media only screen and (min-width: 51em) and (max-width: 69em) {
+  .layout-section {
+    float: left; } }
+@media only screen and (min-width: 70em) {
+  .layout-section {
+    float: left;
+    height: 100%; } }
 
 .side-section {
-  width: 20em;
-  padding: 2%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-  overflow: auto;
-  /* for the middle section, we only want experiences to have this */ }
+  overflow: auto; }
+  @media only screen and (max-width: 50em) {
+    .side-section {
+      width: 100%; } }
+  @media only screen and (min-width: 51em) {
+    .side-section {
+      padding: 2%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 20em; } }
 
-#experiences {
-  padding-top: 2%;
-  width: 30em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box; }
+@media only screen and (max-width: 50em) {
+  #experiences {
+    width: 100%; } }
+@media only screen and (min-width: 51em) {
+  #experiences {
+    padding-top: 2%;
+    width: 30em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box; } }
 
 #change-language {
-  position: absolute;
-  left: -31px;
-  /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */
-  top: 20px; }
+  position: absolute; }
   #change-language li {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -100,31 +123,45 @@ body {
     box-sizing: border-box;
     position: relative;
     width: 30px;
-    line-height: 40px;
     margin-bottom: 10px;
-    background-color: #c0bb81;
-    -webkit-border-radius: 3px 0 0 3px;
-    border-radius: 3px 0 0 3px;
-    background-repeat: no-repeat;
-    background-position: center center; }
-    #change-language li.selected {
-      width: 31px;
-      border-top: 1px solid #334a1a;
-      border-left: 1px solid #334a1a;
-      border-bottom: 1px solid #334a1a; }
-    #change-language li.en {
-      background-image: url("../images/flags/en-transparent.png"); }
-      #change-language li.en:hover {
-        background-image: url("../images/flags/en.png"); }
-    #change-language li.fr {
-      background-image: url("../images/flags/fr-transparent.png"); }
-      #change-language li.fr:hover {
-        background-image: url("../images/flags/fr.png"); }
+    background: url("../images/transparent-noise.png") repeat;
+    background-color: #c0bb81; }
     #change-language li a {
       display: block;
-      width: 100%; }
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center; }
       #change-language li a:hover {
         text-decoration: none; }
+      #change-language li a.en {
+        background-image: url("../images/flags/en-transparent.png"); }
+        #change-language li a.en:hover {
+          background-image: url("../images/flags/en.png"); }
+      #change-language li a.fr {
+        background-image: url("../images/flags/fr-transparent.png"); }
+        #change-language li a.fr:hover {
+          background-image: url("../images/flags/fr.png"); }
+  @media only screen and (max-width: 69em) {
+    #change-language {
+      top: 0;
+      right: 0; }
+      #change-language li {
+        display: block;
+        float: left; } }
+  @media only screen and (min-width: 70em) {
+    #change-language {
+      top: 20px;
+      left: -31px;
+      /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */ }
+      #change-language li {
+        -webkit-border-radius: 3px 0 0 3px;
+        border-radius: 3px 0 0 3px; }
+        #change-language li.selected {
+          width: 31px;
+          border-top: 1px solid #334a1a;
+          border-left: 1px solid #334a1a;
+          border-bottom: 1px solid #334a1a; } }
 
 /* About Me */
 #about-me .photo {
@@ -137,9 +174,6 @@ body {
 #about-me .intro img {
   max-height: 15px;
   margin-right: 5px; }
-#about-me h1 {
-  font-size: 150%;
-  margin-bottom: 10px; }
 #about-me .links {
   list-style: none;
   margin-top: 10px; }
@@ -150,75 +184,93 @@ body {
 /* Experiences */
 #experiences {
   overflow: hidden; }
-  #experiences h1 {
+  #experiences h2 {
     position: absolute; }
-  #experiences ul {
-    list-style: none;
-    margin-top: 3em;
-    height: 100%;
-    overflow: auto;
+  #experiences #experiences-wrapper {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
-    box-sizing: border-box; }
-    #experiences ul li {
-      position: relative;
-      width: 100%; }
-      #experiences ul li.even {
-        background: #cbd4d0 url("../images/bgtexture-CBD4D0.png") repeat; }
-      #experiences ul li.odd {
-        background: #717e6f url("../images/bgtexture-717E6F.png") repeat; }
-      #experiences ul li .experience {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -ms-box-sizing: border-box;
-        -o-box-sizing: border-box;
-        box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 2.5em;
+    height: 100%; }
+    #experiences #experiences-wrapper ul {
+      list-style: none;
+      height: 100%;
+      overflow: auto; }
+      #experiences #experiences-wrapper ul li {
+        position: relative;
         width: 100%;
-        height: 4em;
-        overflow: hidden;
-        padding: 0 0 0 10%;
-        background-repeat: no-repeat;
-        background-size: auto 35px;
-        background-position: 2% 10px; }
-        #experiences ul li .experience.school {
-          background-image: url("../images/icon-school.svg"); }
-        #experiences ul li .experience.work {
-          background-image: url("../images/icon-chair.svg"); }
-        #experiences ul li .experience.perso {
-          background-image: url("../images/icon-idea.svg"); }
-        #experiences ul li .experience .abstract {
-          cursor: pointer; }
-          #experiences ul li .experience .abstract .date {
-            width: 10%;
-            float: right;
-            height: 100%;
-            font-size: 80%;
-            line-height: 50px; }
-          #experiences ul li .experience .abstract h1 {
-            font-size: 110%;
-            line-height: 50px;
-            display: inline-block; }
-          #experiences ul li .experience .abstract .subtitle {
-            font-style: italic;
-            display: inline-block;
-            margin: 0 12% 0 10px; }
-        #experiences ul li .experience .content {
-          display: none;
-          margin-right: 10%; }
-        #experiences ul li .experience.unfolded {
-          min-height: 50px;
-          height: auto; }
-          #experiences ul li .experience.unfolded .content {
-            display: block; }
+        background: url("../images/transparent-noise.png") repeat; }
+        #experiences #experiences-wrapper ul li.even {
+          background-color: #CBD4D0; }
+        #experiences #experiences-wrapper ul li.odd {
+          background-color: #717E6F; }
+        #experiences #experiences-wrapper ul li .experience {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          -ms-box-sizing: border-box;
+          -o-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 100%;
+          height: 3.5em;
+          overflow: hidden;
+          padding: 1% 0 0 12%;
+          background-repeat: no-repeat;
+          background-size: auto 35px;
+          background-position: 2.5% 7px; }
+          #experiences #experiences-wrapper ul li .experience.school {
+            background-image: url("../images/icon-school.svg"); }
+          #experiences #experiences-wrapper ul li .experience.work {
+            background-image: url("../images/icon-chair.svg"); }
+          #experiences #experiences-wrapper ul li .experience.perso {
+            background-image: url("../images/icon-idea.svg"); }
+          #experiences #experiences-wrapper ul li .experience .abstract {
+            cursor: pointer; }
+            #experiences #experiences-wrapper ul li .experience .abstract .date {
+              width: 10%;
+              float: right;
+              height: 100%;
+              font-size: 80%;
+              line-height: 50px; }
+            #experiences #experiences-wrapper ul li .experience .abstract h1 {
+              font-size: 110%;
+              line-height: 50px;
+              display: inline-block; }
+            #experiences #experiences-wrapper ul li .experience .abstract .subtitle {
+              font-style: italic;
+              display: inline-block;
+              margin: 0 12% 0 10px; }
+          #experiences #experiences-wrapper ul li .experience .content {
+            display: none;
+            margin-right: 10%; }
+          #experiences #experiences-wrapper ul li .experience.unfolded {
+            min-height: 50px;
+            height: auto; }
+            #experiences #experiences-wrapper ul li .experience.unfolded .content {
+              display: block; }
 
 /* Extra */
+@media only screen and (min-width: 51em) and (max-width: 69em) {
+  #extra {
+    width: 100%;
+    padding: 0;
+    margin-top: 2em; }
+    #extra h2 {
+      margin-top: 0; }
+    #extra #keywords-sub-section {
+      width: 20em; }
+    #extra #langs-sub-section {
+      width: 30em;
+      padding-left: 2em; }
+    #extra .layout-sub-section {
+      float: left; } }
 #extra ul#keywords {
   width: 100%; }
   #extra ul#keywords li {
     float: left; }
     #extra ul#keywords li button {
+      cursor: pointer;
       background-color: transparent;
       border: 1px solid #834E1C;
       -webkit-border-radius: 2px;
