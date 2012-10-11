@@ -356,10 +356,6 @@ body{
   background-color: rgba(0,0,0,0.1);
   line-height: 2em;
   border-top: $layout-container-border;
-  #fork-me{
-    float: right;
-    padding-right: 1em;
-  }
   #footer-content{
     padding-left: 1em;
     #mail-me{
@@ -376,6 +372,24 @@ body{
         display: inline-block;
         margin-left: 20px;
       }
+    }
+  }
+  #fork-me{
+    float: right;
+    padding-right: 1em;
+  }
+  #responsive-website{
+    float: right; 
+    padding-right: 2em;
+    font-style: italic;
+    span{
+      background-image: url('../images/resize.png');
+      background-repeat: no-repeat;
+      background-position: right bottom 1px;
+      background-size: 1em 1em;
+      padding-right: 1.3em;
+      cursor: default;
+      border-bottom: 1px dotted #000;
     }
   }
   @include respond-to(one-col){

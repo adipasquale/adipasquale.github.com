@@ -295,9 +295,6 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   line-height: 2em;
   border-top: 1px solid #334a1a; }
-  #footer #fork-me {
-    float: right;
-    padding-right: 1em; }
   #footer #footer-content {
     padding-left: 1em; }
     #footer #footer-content #mail-me {
@@ -312,6 +309,21 @@ body {
       #footer #footer-content .external-links li {
         display: inline-block;
         margin-left: 20px; }
+  #footer #fork-me {
+    float: right;
+    padding-right: 1em; }
+  #footer #responsive-website {
+    float: right;
+    padding-right: 2em;
+    font-style: italic; }
+    #footer #responsive-website span {
+      background-image: url("../images/resize.png");
+      background-repeat: no-repeat;
+      background-position: right bottom 1px;
+      background-size: 1em 1em;
+      padding-right: 1.3em;
+      cursor: default;
+      border-bottom: 1px dotted #000; }
   @media only screen and (max-width: 53em) {
     #footer {
       margin-top: 1em;
