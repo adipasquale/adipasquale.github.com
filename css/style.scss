@@ -6,6 +6,7 @@
 $side-sections-width: 20em;
 $center-section-width: 30em;
 $layout-container-color: #C0BB81;
+$body-background-color: #834E1C;
 $layout-container-border: 1px solid #334A1A;
 
 /* Text styling */
@@ -61,20 +62,20 @@ p {
         box-sizing: $sizing;
 }
 // redefine the respective limits for layouts
-$break-small: $side-sections-width + $center-section-width;
-$break-large: 2 * $side-sections-width + $center-section-width;
+$break-small: $side-sections-width + $center-section-width + 3em; /* the 3em is to account for the drop shadow and change language widget. it was not calculated formally though */
+$break-large: 2 * $side-sections-width + $center-section-width + 3em;
 @mixin respond-to($media) {
   @if $media == one-col {
     @media only screen and (max-width: $break-small) { @content; }
   }
   @else if $media == two-cols {
-    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+    @media only screen and (min-width: $break-small + 0.01em) and (max-width: $break-large - 0.01em) { @content; }
   }
   @else if $media == one-or-two-cols {
-    @media only screen and (max-width: $break-large - 1) { @content; }
+    @media only screen and (max-width: $break-large - 0.01em) { @content; }
   }
   @else if $media == two-or-three-cols {
-    @media only screen and (min-width: $break-small + 1) { @content; }
+    @media only screen and (min-width: $break-small + 0.01em) { @content; }
   }
   @else if $media == three-cols {
     @media only screen and (min-width: $break-large) { @content; }
@@ -91,8 +92,8 @@ html, body{
 }
 body{
   @include noise;
-  background-color: #834E1C;
-  @include respond-to(three-cols) {
+  background-color: $body-background-color;
+  @include respond-to(two-or-three-cols) {
     /* this box-sizing allows adding a padding withouth messing up the */
     /* inherited 100% height */
     @include box-sizing(border-box);
@@ -104,15 +105,32 @@ body{
   @include noise;
   background-color: $layout-container-color;
   position: relative;
-  @include respond-to(one-or-two-cols) { 
+  @include respond-to(one-col) { 
     width: 100%; 
   }
-  @include respond-to(three-cols) { 
-    height: 100%;
+  @include respond-to(two-or-three-cols) { 
     @include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
-    width: 2*$side-sections-width + $center-section-width;
     border: $layout-container-border;
     margin: auto;
+  }
+  @include respond-to(two-cols){
+    width: $side-sections-width + $center-section-width;
+  }
+  @include respond-to(three-cols){
+    height: 100%;
+    width: 2*$side-sections-width + $center-section-width;
+  }
+  #layout-content-wrapper{
+    @include respond-to(two-or-three-cols) {
+      @include box-sizing(border-box);
+    }
+    @include respond-to(two-cols) {
+      padding-bottom: 2.8em; /* tricky : we want an additional margin of 1em above footer */
+    }
+    @include respond-to(three-cols){
+      height: 100%;
+      padding-bottom: 1.8em; /* footer's height is 2em, but line-height is 0.9em, so from upper container, it's 1.8em */
+    }
   }
 }
 .layout-section{
@@ -138,74 +156,34 @@ body{
     width: $side-sections-width;
   }
 }
+#about-me{
+  @include respond-to(one-col){
+    padding: 2% 2% 0 2%; /* p1: we need to add some padding everywhere for one-col, except for experiences list */
+  }
+}
 #experiences{
   @include respond-to(one-col) {
-    width: 100%; 
+    width: 100%;
+    h2{
+      padding-left: 2%; /* -> p1 */
+    }
   }
   @include respond-to(two-or-three-cols) {
     padding-top: 2%;
     width: $center-section-width;
     @include box-sizing(border-box);
   }
-}
-
-#change-language{
-  position: absolute;
-  li{
-    @include box-sizing(border-box);
-    position: relative;
-    width: 30px;
-    margin-bottom: 10px;
-    @include noise;
-    background-color: $layout-container-color;
-    a{
-      display: block;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-position: center center;
-      &:hover{
-        text-decoration: none;
-      }
-      &.en{
-        background-image: url('../images/flags/en-transparent.png');
-        &:hover{
-          background-image: url('../images/flags/en.png');
-        }
-      }
-      &.fr{
-        background-image: url('../images/flags/fr-transparent.png');
-        &:hover{
-          background-image: url('../images/flags/fr.png');
-        }
-      }
-    }
-  }
-  @include respond-to(one-or-two-cols) {
-    top: 0;
-    right: 0;
-    li{
-      display: block;
-      float: left;
-    }
-  }
-  @include respond-to(three-cols) {
-    top: 20px;
-    left: -31px; /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */
-    li{
-      @include border-radius(3px 0 0 3px);
-      &.selected{
-        width: 31px;
-        border-top: $layout-container-border;
-        border-left: $layout-container-border;
-        border-bottom: $layout-container-border;
-      }
-    }
+  @include respond-to(two-cols) {
+    padding-right: 2%; /* detach experiences list from right border */
   }
 }
+#extra{
+  @include respond-to(one-col){
+    padding: 0 2% 0 2%; /* p1: we need to add some padding everywhere for one-col, except for experiences list */
+  } 
+}
 
-
-/* About Me */
+/* About Me (left column) */
 
 #about-me{
   .photo{
@@ -223,18 +201,10 @@ body{
       margin-right: 5px;
     }
   }
-  .links{
-    list-style: none;
-    margin-top: 10px;
-    li{
-      display: inline-block;
-      margin-left: 20px;
-    }
-  }
 }
 
 
-/* Experiences */
+/* Experiences (center column) */
 
 #experiences{
   overflow: hidden;
@@ -314,8 +284,12 @@ body{
   }
 }
 
-/* Extra */
+/* Extra (right column) */
+
 #extra{
+  @include respond-to(one-col){
+    margin-top: 1em;
+  }
   @include respond-to(two-cols){
     width: 100%;
     padding: 0;
@@ -324,14 +298,16 @@ body{
       margin-top: 0;
     }
     #keywords-sub-section{
-      width: $side-sections-width;
+      width: $center-section-width;
+      padding-right: 2%; /* follow experiences list padding */
     }
     #langs-sub-section{
-      width: $center-section-width;
       padding-left: 2em;
+      width: $side-sections-width;
     }
     .layout-sub-section{
-      float: left;
+      @include box-sizing(border-box);
+      float: right;
     }
   }
   ul#keywords{
@@ -366,6 +342,104 @@ body{
     }
     &.basic{
       background-image: url('../images/glyphicons_182_mute.png');
+    }
+  }
+}
+
+/* Footer */
+
+#footer{
+  width: 100%;
+  height: 2em;
+  font-size: 0.9em;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.1);
+  line-height: 2em;
+  border-top: $layout-container-border;
+  #fork-me{
+    float: right;
+    padding-right: 1em;
+  }
+  #footer-content{
+    padding-left: 1em;
+    #mail-me{
+      padding-right: 1em;
+      padding-left: 1em;
+      background-image: url('../images/gmail-icon.png');
+      background-repeat: no-repeat;
+      background-size: 1em 1em;
+      background-position: left bottom;
+    }
+    .external-links{
+      display: inline; 
+      li{
+        display: inline-block;
+        margin-left: 20px;
+      }
+    }
+  }
+  @include respond-to(one-col){
+    margin-top: 1em; /* in the case of one column, the margin can be put directly here, since positioning is relative */
+  }
+  @include respond-to(two-or-three-cols) {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+/* language widget */
+
+#change-language{
+  position: absolute;
+  li{
+    @include box-sizing(border-box);
+    position: relative;
+    width: 30px;
+    margin-bottom: 10px;
+    @include noise;
+    background-color: $layout-container-color;
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      &:hover{
+        text-decoration: none;
+      }
+      &.en{
+        background-image: url('../images/flags/en-transparent.png');
+        &:hover{
+          background-image: url('../images/flags/en.png');
+        }
+      }
+      &.fr{
+        background-image: url('../images/flags/fr-transparent.png');
+        &:hover{
+          background-image: url('../images/flags/fr.png');
+        }
+      }
+    }
+  }
+  @include respond-to(one-col) {
+    top: 0;
+    right: 0;
+    li{
+      display: block;
+      float: left;
+    }
+  }
+  @include respond-to(two-or-three-cols) {
+    top: 20px;
+    left: -31px; /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */
+    li{
+      @include border-radius(3px 0 0 3px);
+      &.selected{
+        width: 31px;
+        border-top: $layout-container-border;
+        border-left: $layout-container-border;
+        border-bottom: $layout-container-border;
+      }
     }
   }
 }

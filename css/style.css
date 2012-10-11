@@ -37,17 +37,18 @@ p {
   display: none; }
 
 /* custom common mixins */
+/* the 3em is to account for the drop shadow and change language widget. it was not calculated formally though */
 /* Global Layout */
 html, body {
   height: 100%; }
-  @media only screen and (min-width: 70em) {
+  @media only screen and (min-width: 73em) {
     html, body {
       overflow: hidden; } }
 
 body {
   background: url("../images/transparent-noise.png") repeat;
-  background-color: #834E1C; }
-  @media only screen and (min-width: 70em) {
+  background-color: #834e1c; }
+  @media only screen and (min-width: 53.01em) {
     body {
       /* this box-sizing allows adding a padding withouth messing up the */
       /* inherited 100% height */
@@ -62,35 +63,56 @@ body {
   background: url("../images/transparent-noise.png") repeat;
   background-color: #c0bb81;
   position: relative; }
-  @media only screen and (max-width: 69em) {
+  @media only screen and (max-width: 53em) {
     #layout-container {
       width: 100%; } }
-  @media only screen and (min-width: 70em) {
+  @media only screen and (min-width: 53.01em) {
     #layout-container {
-      height: 100%;
       -webkit-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.65);
       box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.65);
-      width: 70em;
       border: 1px solid #334a1a;
       margin: auto; } }
+  @media only screen and (min-width: 53.01em) and (max-width: 72.99em) {
+    #layout-container {
+      width: 50em; } }
+  @media only screen and (min-width: 73em) {
+    #layout-container {
+      height: 100%;
+      width: 70em; } }
+  @media only screen and (min-width: 53.01em) {
+    #layout-container #layout-content-wrapper {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box; } }
+  @media only screen and (min-width: 53.01em) and (max-width: 72.99em) {
+    #layout-container #layout-content-wrapper {
+      padding-bottom: 2.8em;
+      /* tricky : we want an additional margin of 1em above footer */ } }
+  @media only screen and (min-width: 73em) {
+    #layout-container #layout-content-wrapper {
+      height: 100%;
+      padding-bottom: 1.8em;
+      /* footer's height is 2em, but line-height is 0.9em, so from upper container, it's 1.8em */ } }
 
-@media only screen and (max-width: 50em) {
+@media only screen and (max-width: 53em) {
   .layout-section {
     width: 100%; } }
-@media only screen and (min-width: 51em) and (max-width: 69em) {
+@media only screen and (min-width: 53.01em) and (max-width: 72.99em) {
   .layout-section {
     float: left; } }
-@media only screen and (min-width: 70em) {
+@media only screen and (min-width: 73em) {
   .layout-section {
     float: left;
     height: 100%; } }
 
 .side-section {
   overflow: auto; }
-  @media only screen and (max-width: 50em) {
+  @media only screen and (max-width: 53em) {
     .side-section {
       width: 100%; } }
-  @media only screen and (min-width: 51em) {
+  @media only screen and (min-width: 53.01em) {
     .side-section {
       padding: 2%;
       -webkit-box-sizing: border-box;
@@ -100,10 +122,18 @@ body {
       box-sizing: border-box;
       width: 20em; } }
 
-@media only screen and (max-width: 50em) {
+@media only screen and (max-width: 53em) {
+  #about-me {
+    padding: 2% 2% 0 2%;
+    /* p1: we need to add some padding everywhere for one-col, except for experiences list */ } }
+
+@media only screen and (max-width: 53em) {
   #experiences {
-    width: 100%; } }
-@media only screen and (min-width: 51em) {
+    width: 100%; }
+    #experiences h2 {
+      padding-left: 2%;
+      /* -> p1 */ } }
+@media only screen and (min-width: 53.01em) {
   #experiences {
     padding-top: 2%;
     width: 30em;
@@ -112,58 +142,17 @@ body {
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
     box-sizing: border-box; } }
+@media only screen and (min-width: 53.01em) and (max-width: 72.99em) {
+  #experiences {
+    padding-right: 2%;
+    /* detach experiences list from right border */ } }
 
-#change-language {
-  position: absolute; }
-  #change-language li {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    position: relative;
-    width: 30px;
-    margin-bottom: 10px;
-    background: url("../images/transparent-noise.png") repeat;
-    background-color: #c0bb81; }
-    #change-language li a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-position: center center; }
-      #change-language li a:hover {
-        text-decoration: none; }
-      #change-language li a.en {
-        background-image: url("../images/flags/en-transparent.png"); }
-        #change-language li a.en:hover {
-          background-image: url("../images/flags/en.png"); }
-      #change-language li a.fr {
-        background-image: url("../images/flags/fr-transparent.png"); }
-        #change-language li a.fr:hover {
-          background-image: url("../images/flags/fr.png"); }
-  @media only screen and (max-width: 69em) {
-    #change-language {
-      top: 0;
-      right: 0; }
-      #change-language li {
-        display: block;
-        float: left; } }
-  @media only screen and (min-width: 70em) {
-    #change-language {
-      top: 20px;
-      left: -31px;
-      /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */ }
-      #change-language li {
-        -webkit-border-radius: 3px 0 0 3px;
-        border-radius: 3px 0 0 3px; }
-        #change-language li.selected {
-          width: 31px;
-          border-top: 1px solid #334a1a;
-          border-left: 1px solid #334a1a;
-          border-bottom: 1px solid #334a1a; } }
+@media only screen and (max-width: 53em) {
+  #extra {
+    padding: 0 2% 0 2%;
+    /* p1: we need to add some padding everywhere for one-col, except for experiences list */ } }
 
-/* About Me */
+/* About Me (left column) */
 #about-me .photo {
   float: left;
   margin-right: 1em; }
@@ -174,14 +163,8 @@ body {
 #about-me .intro img {
   max-height: 15px;
   margin-right: 5px; }
-#about-me .links {
-  list-style: none;
-  margin-top: 10px; }
-  #about-me .links li {
-    display: inline-block;
-    margin-left: 20px; }
 
-/* Experiences */
+/* Experiences (center column) */
 #experiences {
   overflow: hidden; }
   #experiences h2 {
@@ -250,8 +233,11 @@ body {
             #experiences #experiences-wrapper ul li .experience.unfolded .content {
               display: block; }
 
-/* Extra */
-@media only screen and (min-width: 51em) and (max-width: 69em) {
+/* Extra (right column) */
+@media only screen and (max-width: 53em) {
+  #extra {
+    margin-top: 1em; } }
+@media only screen and (min-width: 53.01em) and (max-width: 72.99em) {
   #extra {
     width: 100%;
     padding: 0;
@@ -259,12 +245,19 @@ body {
     #extra h2 {
       margin-top: 0; }
     #extra #keywords-sub-section {
-      width: 20em; }
-    #extra #langs-sub-section {
       width: 30em;
-      padding-left: 2em; }
+      padding-right: 2%;
+      /* follow experiences list padding */ }
+    #extra #langs-sub-section {
+      padding-left: 2em;
+      width: 20em; }
     #extra .layout-sub-section {
-      float: left; } }
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -o-box-sizing: border-box;
+      box-sizing: border-box;
+      float: right; } }
 #extra ul#keywords {
   width: 100%; }
   #extra ul#keywords li {
@@ -292,3 +285,89 @@ body {
     background-image: url("../images/glyphicons_183_volume_down.png"); }
   #extra .langs.basic {
     background-image: url("../images/glyphicons_182_mute.png"); }
+
+/* Footer */
+#footer {
+  width: 100%;
+  height: 2em;
+  font-size: 0.9em;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.1);
+  line-height: 2em;
+  border-top: 1px solid #334a1a; }
+  #footer #fork-me {
+    float: right;
+    padding-right: 1em; }
+  #footer #footer-content {
+    padding-left: 1em; }
+    #footer #footer-content #mail-me {
+      padding-right: 1em;
+      padding-left: 1em;
+      background-image: url("../images/gmail-icon.png");
+      background-repeat: no-repeat;
+      background-size: 1em 1em;
+      background-position: left bottom; }
+    #footer #footer-content .external-links {
+      display: inline; }
+      #footer #footer-content .external-links li {
+        display: inline-block;
+        margin-left: 20px; }
+  @media only screen and (max-width: 53em) {
+    #footer {
+      margin-top: 1em;
+      /* in the case of one column, the margin can be put directly here, since positioning is relative */ } }
+  @media only screen and (min-width: 53.01em) {
+    #footer {
+      position: absolute;
+      bottom: 0; } }
+
+/* language widget */
+#change-language {
+  position: absolute; }
+  #change-language li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    width: 30px;
+    margin-bottom: 10px;
+    background: url("../images/transparent-noise.png") repeat;
+    background-color: #c0bb81; }
+    #change-language li a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center; }
+      #change-language li a:hover {
+        text-decoration: none; }
+      #change-language li a.en {
+        background-image: url("../images/flags/en-transparent.png"); }
+        #change-language li a.en:hover {
+          background-image: url("../images/flags/en.png"); }
+      #change-language li a.fr {
+        background-image: url("../images/flags/fr-transparent.png"); }
+        #change-language li a.fr:hover {
+          background-image: url("../images/flags/fr.png"); }
+  @media only screen and (max-width: 53em) {
+    #change-language {
+      top: 0;
+      right: 0; }
+      #change-language li {
+        display: block;
+        float: left; } }
+  @media only screen and (min-width: 53.01em) {
+    #change-language {
+      top: 20px;
+      left: -31px;
+      /* we are using a tweak on width, instead of proper z-indexes because of a hover problem with negative z-idx */ }
+      #change-language li {
+        -webkit-border-radius: 3px 0 0 3px;
+        border-radius: 3px 0 0 3px; }
+        #change-language li.selected {
+          width: 31px;
+          border-top: 1px solid #334a1a;
+          border-left: 1px solid #334a1a;
+          border-bottom: 1px solid #334a1a; } }
