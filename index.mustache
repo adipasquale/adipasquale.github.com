@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <title>Adrien Di  Pasquale</title>
   <link href='tachyons-4.11.1.css' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body class="helvetica">
@@ -15,14 +16,21 @@
 
 <main class="ph3 ph5-ns mb5">
 
-  <div class="flex mw7 pt3 center items-center">
-    <div class="w-20">
-      <img src="avatar.jpg" class="br-100" />
+  <div class="flex-ns mw7 pt3 center items-center">
+    <div class="w-20-ns flex items-center">
+      <div class="w-40 w-auto-ns">
+        <img src="avatar.jpg" class="br-100 h4 w4 h-auto-ns w-auto-ns aspect-ratio--1x" />
+      </div>
+      <div class="w-60 dn-ns pl3">
+        <h1 class="code mt0 f4">
+          Adrien Di&nbsp;Pasquale
+        </h1>
+      </div>
     </div>
 
-    <div class="w-80 pl4">
-      <h1 class="code mt0">
-        Adrien Di Pasquale
+    <div class="w-80-ns pl4-ns">
+      <h1 class="code mt0 dn">
+        Adrien Di&nbsp;Pasquale
       </h1>
       <div class="measure lh-copy">
         <p>
@@ -51,15 +59,15 @@
     </div>
   </div>
 
-  <div class="mw7 center">
+  <div class="mw7 mt5 mt4-ns center">
     <h2 class="code">
       HyperText
     </h2>
     <ul class="list pa0">
       {{#tweets}}
-        <li class="flex mv2">
+        <li class="flex-ns mv2">
           ☯︎&nbsp;
-          <div class="truncate" title="{{description}}">
+          <div class="truncate-ns di db-ns" title="{{description}}">
             <a href="{{url}}" class="purple">
               {{title}}
             </a>
