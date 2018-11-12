@@ -91,9 +91,6 @@
 
 </main>
 
-<script type="text/javascript" src="underscore-min.js"></script>
-<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
-
 <script type="text/javascript">
 
   var LINES_COUNT = 14,
@@ -112,6 +109,9 @@
   var getRandomPeak = function(){
     return Math.floor((Math.random() * MAX_PEAK_HEIGHT));
   };
+  var randomIntFromInterval = function(min,max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
+  }
 
   var doResize = function(){
     lines = [];
@@ -125,7 +125,9 @@
         "points": []
       }
 
-      _.times(POINTS_PER_LINE, function(){ newLine.points.push(0); });
+      for(var y=0; y < POINTS_PER_LINE; y++) {
+        newLine.points.push(0);
+      }
 
       var peaksCount = Math.floor((Math.random() * MAX_PEAKS_COUNT_PER_LINE) + MIN_PEAKS_COUNT_PER_LINE);
       var firstPeakAt = Math.round(POINTS_PER_LINE / 2 - peaksCount / 2);
@@ -142,14 +144,23 @@
 
     // var cursorX = event === undefined ? Math.round(canvas.width / 2) : event.pageX;
     if (event !== undefined) {
-      var closestLine = _.min(lines, function(line){
-        return Math.abs(line.height - event.pageY);
-      });
+      linesDistances = lines.map((line) => Math.abs(line.height - event.pageY));
+      var lowestLineDistance = Math.min(...linesDistances);
+      var closestLineIdx = linesDistances.indexOf(lowestLineDistance);
+      var closestLine = lines[closestLineIdx];
 
-      var reach = _.random(0, 2);
+      var reach = randomIntFromInterval(0, 2);
       var pointIdx = Math.round(event.pageX / segmentWidth) - reach;
       for (var idx = pointIdx; idx < pointIdx + reach * 2 + 1; idx++) {
-        closestLine.points[idx] = _.random(closestLine.points[idx] * 0.4, Math.min(Math.max(closestLine.points[idx] * 1.2, 0.4 * MAX_PEAK_HEIGHT), MAX_PEAK_HEIGHT));
+        var lowerBound = closestLine.points[idx] * 0.4;
+        var higherBound = Math.min(
+          Math.max(
+            closestLine.points[idx] * 1.2,
+            0.4 * MAX_PEAK_HEIGHT
+          ),
+          MAX_PEAK_HEIGHT
+        );
+        closestLine.points[idx] = randomIntFromInterval(lowerBound, higherBound);
       }
     }
 
@@ -158,15 +169,16 @@
     //   line.points = _.map(line.points, function(h){ return _.random(h * 0.8, Math.min(Math.max(h*1.2, 0.1 * MAX_PEAK_HEIGHT), MAX_PEAK_HEIGHT)); });
     // });
 
-    _.each(lines, function(line){
+    lines.forEach(function(line){
       ctx.beginPath();
       var currentX = 0;
 
       // draw first segment
       ctx.moveTo(0, line.height);
-      _.each(line.points, function(pointHeight, idx) {
-        if (idx > 0)  // this matches the upper moveTo
+      line.points.forEach(function(pointHeight, idx) {
+        if (idx > 0) { // this matches the upper moveTo
           ctx.lineTo(segmentWidth * idx, line.height - pointHeight);
+        }
       });
 
       // ctx.closePath();
