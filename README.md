@@ -10,7 +10,7 @@ This is a very simple Python application that builds a static `index.html` file.
 ## Local setup
 
 ```
-mkvirtualenv adipasquale.github.io
+mkvirtualenv adipasquale.github.com
 pip3 install -r requirements.txt -r requirements-dev.txt
 ```
 
@@ -26,6 +26,7 @@ TWITTER_ACCESS_TOKEN_SECRET=...
 ## Local serve
 
 ```
+workon adipasquale.github.com
 python3 scripts/local_server.py
 ```
 

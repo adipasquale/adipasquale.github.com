@@ -6,11 +6,23 @@ import requests
 import pystache
 import pickle
 import argparse
+import feedparser
 from distutils.dir_util import copy_tree
+import time
 load_dotenv()
 DIRNAME = os.path.dirname(__file__)
-CACHE_FILE_PATH = os.path.join(DIRNAME, '..', 'tmp', 'tweets.pickle')
+CACHE_TWEETS_FILE_PATH = os.path.join(DIRNAME, '..', 'tmp', 'tweets.pickle')
+CACHE_BLOGPOSTS_FILE_PATH = os.path.join(DIRNAME, '..', 'tmp', 'blogposts.pickle')
 
+def fetch_and_parse_blogposts():
+    feed = feedparser.parse("https://blog.dipasquale.fr/feed.xml")
+    blogposts = [{
+        "title": entry.title,
+        "url": entry.link,
+        "published_at": time.strftime('%B %-d, %Y', entry.published_parsed)
+    } for entry in feed.entries][:2]
+    pickle.dump(blogposts, open(CACHE_BLOGPOSTS_FILE_PATH, "wb"))
+    return blogposts
 
 def fetch_and_parse_tweets():
     api = twitter.Api(
@@ -21,11 +33,12 @@ def fetch_and_parse_tweets():
     )
 
     results = api.GetSearch(
-        raw_query="q=%23hypertext from%3AMagalitoRene&tweet_mode=extended"
+        raw_query="q=from%3Ahypertextadrien&tweet_mode=extended"
     )
     parsed_tweets = [parse_tweet(status.full_text) for status in results]
+    parsed_tweets = [t for t in parsed_tweets if t is not None]
     print("%s tweets were fetched." % len(parsed_tweets))
-    pickle.dump(parsed_tweets, open(CACHE_FILE_PATH, "wb"))
+    pickle.dump(parsed_tweets, open(CACHE_TWEETS_FILE_PATH, "wb"))
     return parsed_tweets
 
 
@@ -55,12 +68,13 @@ def parse_tweet(tweet_text):
     return parsed
 
 
-def rebuild(tweets):
+def rebuild(tweets, blogposts):
     template_path = os.path.join(DIRNAME, '..', 'index.mustache')
     renderer = pystache.Renderer()
     rendered_html = renderer.render_path(
         template_path, {
-        "tweets": tweets
+            "tweets": tweets,
+            "blogposts": blogposts
         }
     )
     index_path = os.path.join(DIRNAME, '..', 'build', 'index.html')
@@ -86,10 +100,11 @@ if __name__ == '__main__':
     parser.add_argument('--use-cache', const=True, action='store_const')
     args = parser.parse_args()
     create_tmp_directories()
-    if args.use_cache and os.path.isfile(CACHE_FILE_PATH):
-        tweets = pickle.load(open(CACHE_FILE_PATH, "rb"))
-        print("%s tweets loaded from cache" % len(tweets))
-        print([t["hashtags"] for t in tweets])
+    if args.use_cache and os.path.isfile(CACHE_TWEETS_FILE_PATH):
+        tweets = pickle.load(open(CACHE_TWEETS_FILE_PATH, "rb"))
+        blogposts = pickle.load(open(CACHE_BLOGPOSTS_FILE_PATH, "rb"))
+        print("%s tweets and %s blogposts loaded from cache" % (len(tweets), len(blogposts)))
     else:
         tweets = fetch_and_parse_tweets()
-    rebuild(tweets)
+        blogposts = fetch_and_parse_blogposts()
+    rebuild(tweets, blogposts)

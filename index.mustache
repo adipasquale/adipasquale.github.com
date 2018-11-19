@@ -64,8 +64,28 @@
 
   <div class="mw7 mt5 mt4-ns center">
     <h2 class="code">
+      Latest blogposts
+    </h2>
+    <ul class="list pa0">
+      {{#blogposts}}
+        <li class="mv2">
+          ♘&nbsp;
+          <div class="truncate-ns di" title="{{description}}">
+            <a href="{{url}}" class="purple">{{title}}</a>
+            on {{published_at}}
+          </div>
+        </li>
+      {{/blogposts}}
+    </ul>
+  </div>
+
+  <div class="mw7 mt5 mt4-ns center">
+    <h2 class="code">
       HyperText
     </h2>
+    <div class="mv3 black-60 f6">
+      These links were originally posted on my twitter account, I archive them here.
+    </div>
     <ul class="list pa0">
       {{#tweets}}
         <li class="flex-ns mv2">
@@ -87,8 +107,11 @@
         </li>
       {{/tweets}}
     </ul>
-    <div class="mv3 black-60 f6">
-      These links were originally posted on my twitter account, I archive them here.
+  </div>
+
+  <div class="mt5 mt4-ns pt5 measure center f6 black-60">
+    <div class="">
+      Powered by Netlify, pystache and a python script, see <a href="https://github.com/adipasquale/adipasquale.github.com">source</a>.
     </div>
   </div>
 
