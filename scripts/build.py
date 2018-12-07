@@ -1,4 +1,4 @@
-import twitter
+import searchtweets
 import os
 from dotenv import load_dotenv
 import re
@@ -25,17 +25,13 @@ def fetch_and_parse_blogposts():
     return blogposts
 
 def fetch_and_parse_tweets():
-    api = twitter.Api(
-        consumer_key=os.environ["TWITTER_CONSUMER_KEY"],
-        consumer_secret=os.environ["TWITTER_CONSUMER_SECRET"],
-        access_token_key=os.environ["TWITTER_ACCESS_TOKEN_KEY"],
-        access_token_secret=os.environ["TWITTER_ACCESS_TOKEN_SECRET"]
+    search_args = searchtweets.load_credentials()
+    tweets = searchtweets.collect_results(
+        {"query": "from:hypertextadrien"},
+        max_results=100,
+        result_stream_args=search_args
     )
-
-    results = api.GetSearch(
-        raw_query="q=from%3Ahypertextadrien&tweet_mode=extended"
-    )
-    parsed_tweets = [parse_tweet(status.full_text) for status in results]
+    parsed_tweets = [parse_tweet(status.all_text) for status in tweets]
     parsed_tweets = [t for t in parsed_tweets if t is not None]
     print("%s tweets were fetched." % len(parsed_tweets))
     pickle.dump(parsed_tweets, open(CACHE_TWEETS_FILE_PATH, "wb"))
