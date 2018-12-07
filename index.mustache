@@ -33,8 +33,8 @@
 
 <main class="ph3 ph5-ns mb5 pt3-ns">
 
-  <div class="flex-ns mw7 pt3 center items-center">
-    <div class="w-20-ns flex items-center justify-center">
+  <div class="flex-ns mw7 pt3 center items-center items-start-ns">
+    <div class="w-20-ns flex justify-center">
       <div class="">
         <img src="avatar.jpg" class="mw4 mw-100-ns br-100" />
       </div>
@@ -51,10 +51,15 @@
       </h1>
       <div class="measure lh-copy">
         <p>
-          Bonjour ! I am a full-stack web developer. I have worked at <a href="https://www.drivy.com" class="black">Drivy</a> and <a href="https://www.pricingassistant.com" class="black">Pricing Assistant</a>. I am now free-lancing with <a href="https://www.outofscreen.com" class="black">Out Of Screen</a>, for companies such as <a href="http://taleme-shop.com/" class="black">Tale Me</a>, <a href="https://www.checksub.com" class="black">Checksub</a>. I also give lectures at <a href="https://www.lewagon.com/" class="black">Le Wagon</a> coding bootcamp, and co-organize the <a href="https://www.meetup.com/fr-FR/Paris-py-Python-Django-friends/">Paris.py meetup</a>.
+          Bonjour ! I am a full-stack web developer with 6 years of experience.
+          I have worked at <a href="https://www.drivy.com" class="black">Drivy</a> and <a href="https://www.pricingassistant.com" class="black">Pricing Assistant</a>.
+          I am now working as a freelance on Ruby On Rails, Python, JS, and scraping projects.
+        </p>
+        <p>
+          I also give lectures at <a href="https://www.lewagon.com/" class="black">Le Wagon</a> coding bootcamp, and co-organize the <a href="https://www.meetup.com/fr-FR/Paris-py-Python-Django-friends/" class="black">Paris.py meetup</a>.
           </p>
           <p>
-            My main areas of expertise are Ruby&nbsp;On&nbsp;Rails backends, Python and Web&nbsp;scraping. I speak french, english, italian and spanish.
+            I speak french, english, italian and spanish.
           </p>
       </div>
       <div class="mv3 f4 measure">
@@ -76,55 +81,56 @@
           Blog
         </a>
       </div>
-    </div>
-  </div>
 
-  <div class="mw7 mt5 mt4-ns center">
-    <h2 class="code">
-      Latest blogposts
-    </h2>
-    <ul class="list pa0">
-      {{#blogposts}}
-        <li class="mv2">
-          ♘&nbsp;
-          <div class="truncate-ns di" title="{{description}}">
-            <a href="{{url}}" class="purple">{{title}}</a>
-            on {{published_at}}
-          </div>
-        </li>
-      {{/blogposts}}
-    </ul>
-  </div>
-
-  <div class="mw7 mt5 mt4-ns center">
-    <h2 class="code">
-      HyperText
-    </h2>
-    <div class="mv3 black-60 f6">
-      These links were originally posted on my twitter account, I archive them here.
-    </div>
-    <ul class="list pa0">
-      {{#tweets}}
-        <li class="flex-ns mv2">
-          ☯︎&nbsp;
-          <div class="truncate-ns di db-ns" title="{{description}}">
-            <a href="{{url}}" class="purple">
-              {{title}}
-            </a>
-            ·
-            {{description}}
-          </div>
-          <div class="ml1 dib nowrap">
-            {{#hashtags}}
-              <div class="bg-black-20 br-pill dib ph1 f6 black-70">
-                {{name}}
+      <div class="mt5 mt4-ns">
+        <h2 class="code">
+          Latest blogposts
+        </h2>
+        <ul class="list pa0">
+          {{#blogposts}}
+            <li class="mv2">
+              ♘&nbsp;
+              <div class="truncate-ns di" title="{{description}}">
+                <a href="{{url}}" class="purple">{{title}}</a>
+                on {{published_at}}
               </div>
-            {{/hashtags}}
-          </div>
-        </li>
-      {{/tweets}}
-    </ul>
+            </li>
+          {{/blogposts}}
+        </ul>
+      </div>
+
+      <div class="mt5 mt4-ns center">
+        <h2 class="code">
+          HyperText
+        </h2>
+        <div class="mv3 black-60 f6">
+          These links were originally posted on my twitter account, I archive them here.
+        </div>
+        <ul class="list pa0">
+          {{#tweets}}
+            <li class="flex-ns mv2">
+              ☯︎&nbsp;
+              <div class="truncate-ns di db-ns" title="{{description}}">
+                <a href="{{url}}" class="purple">
+                  {{title}}
+                </a>
+                ·
+                {{description}}
+              </div>
+              <div class="ml1 dib nowrap">
+                {{#hashtags}}
+                  <div class="bg-black-20 br-pill dib ph1 f6 black-70">
+                    {{name}}
+                  </div>
+                {{/hashtags}}
+              </div>
+            </li>
+          {{/tweets}}
+        </ul>
+      </div>
+    </div>
   </div>
+
 
   <div class="mt5 mt4-ns pt5 measure center f6 black-60">
     <div class="">
@@ -254,12 +260,15 @@
     // TODO : this is not working at least for iOS safari.
     // canvas.addEventListener("click", (e) => perturbate);
   } else {
+    /* Disabling mouse events because of bug reports :(
+
     canvas.addEventListener("mouseover", perturbate, false);
     canvas.addEventListener("mousemove", perturbate, false);
     window.onresize = function(){
       doResize();
       draw();
     };
+    */
   }
 
   doResize();

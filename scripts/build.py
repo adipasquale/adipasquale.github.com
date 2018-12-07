@@ -20,7 +20,7 @@ def fetch_and_parse_blogposts():
         "title": entry.title,
         "url": entry.link,
         "published_at": time.strftime('%B %-d, %Y', entry.published_parsed)
-    } for entry in feed.entries][:2]
+    } for entry in feed.entries][:4]
     pickle.dump(blogposts, open(CACHE_BLOGPOSTS_FILE_PATH, "wb"))
     return blogposts
 
