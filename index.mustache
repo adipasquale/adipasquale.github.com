@@ -7,21 +7,34 @@
   <link href='tachyons-4.11.1.css' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Matomo -->
-  <script type="text/javascript">
-    var _paq = _paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
+  <!-- Countly -->
+  <script type='text/javascript'>
+    //some default pre init
+    var Countly = Countly || {};
+    Countly.q = Countly.q || [];
+
+    //provide countly initialization parameters
+    Countly.app_key = '6597f8cb52f365e708d601919f0c2c35176c0926';
+    Countly.url = 'https://t.outofscreen.com';
+
+    Countly.q.push(['track_sessions']);
+    Countly.q.push(['track_pageview']);
+    Countly.q.push(['track_clicks']);
+    Countly.q.push(['track_scrolls']);
+    Countly.q.push(['track_errors']);
+    Countly.q.push(['track_links']);
+    Countly.q.push(['track_forms']);
+
+    //load countly script asynchronously
     (function() {
-      var u="https://itomi.matomo.cloud/";
-      _paq.push(['setTrackerUrl', u+'piwik.php']);
-      _paq.push(['setSiteId', '3']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/itomi.matomo.cloud/piwik.js'; s.parentNode.insertBefore(g,s);
+      var cly = document.createElement('script'); cly.type = 'text/javascript';
+      cly.async = true;
+      //enter url of script here
+      cly.src = 'https://t.outofscreen.com/sdk/web/countly.min.js';
+      cly.onload = function(){Countly.init()};
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);
     })();
   </script>
-  <!-- End Matomo Code -->
 
 </head>
 
