@@ -101,6 +101,7 @@ if __name__ == '__main__':
         blogposts = pickle.load(open(CACHE_BLOGPOSTS_FILE_PATH, "rb"))
         print("%s tweets and %s blogposts loaded from cache" % (len(tweets), len(blogposts)))
     else:
-        tweets = fetch_and_parse_tweets()
+        # tweets = fetch_and_parse_tweets()
+        tweets = []
         blogposts = fetch_and_parse_blogposts()
     rebuild(tweets, blogposts)
