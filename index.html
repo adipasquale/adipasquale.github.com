@@ -12,8 +12,10 @@
 
 <body>
 
-  <header style="display: flex; align-items: center; margin-bottom: 2rem;">
-    <img src="avatar.jpg" style="height: 8rem; margin-right: 20px; border-radius: 10px;" />
+  <header>
+    <div class="avatar-wrapper">
+      <img src="avatar.jpg" />
+    </div>
     <div>
       <h1>
         Adrien Di&nbsp;Pasquale
@@ -22,7 +24,7 @@
         Web developer
       </h2>
       <div style="font-size: .9rem;">
-        🌍 Marseille
+        📍 Marseille, FR
         <br />
         💬 French, English, Italian, Spanish
       </div>
@@ -75,6 +77,9 @@
     <p>
       I'm attached to transparency in general and an advocate of <mark>Open Source</mark> and <mark>Open Data</mark>.
       I am very fond of <mark>scraping</mark> projects and I have experience with data analysis.
+    </p>
+    <p>
+      I like learning languages, travelling slowly, sailing and hiking.
     </p>
 
     <nav>
@@ -141,6 +146,24 @@
     flex-direction: column;
   }
 
+  header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+
+    .avatar-wrapper {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 8rem;
+        border-radius: 10px;
+        margin: 0;
+      }
+    }
+  }
+
   main {
     flex: 1;
   }
@@ -171,8 +194,10 @@
     padding: 0;
     display: flex;
     margin-top: 2rem;
+    margin-bottom: 6rem;
     gap: 1.5rem;
     align-items: center;
+    flex-wrap: wrap;
 
     a {
       flex-shrink: 0;
